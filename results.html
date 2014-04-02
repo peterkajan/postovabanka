@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+  	<title>Vyhodnotenie</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  </head>
+  
+  <body class="res" >
+	  <div class="loaderCanvas">	
+	      <div class="loader">
+	      	<img src="images/loader.gif"/>
+	      </div>
+	  </div>
+	 
+	  <div class="restext"> 
+        <h4>{{characters[characterId]}}</h4>
+	  	{{characterTexts[characterId]}}
+	  	<br/>
+	  	<br/>
+	    Tešíme sa na Vás a Váš hviezdny prevlek!
+	    <br/>
+	  	<br/>
+	  	<a href="/?last=1" style="color: #D6944B;"> Späť na pozvánku </a>
+	  </div>   
+    
+    <div class="characters">        
+	    {% for id in characters %}
+	        <a id='{{id}}'> 
+	          <img class="characters {% if characterId == id %} selected {% else %} dark{% endif %}" 
+	               src="../images/characters/{{characterImgs[id]}}.jpg"/> 
+	        </a> 
+	        <br>
+	    {% endfor %}
+    </div>
+
+	<script>
+		{% autoescape false %}
+	 	var displayText = function() {
+	 		$('div.restext').show();
+	 		$( "img.characters").not(".selected").animate({
+			    opacity:0.1,
+			 }, 2000);
+	 	}
+	 	
+	 	$(window).load(function() {
+	 		$('html, body').scrollTop(0);
+            $('div.loaderCanvas').fadeOut(1000);
+            setTimeout(function () {
+				 $('html, body').animate({
+					scrollTop: $("#19").offset().top
+				 }, 6000);
+				 $('html, body').animate({
+				 	scrollTop: $("#{{characterId}}").offset().top - 168
+				 }, (19-{{characterId}})*100, displayText);
+			}, 1000);
+        });
+        
+        $( document ).ready(function() {
+	    	$('div.restext').hide();
+	    	$('div.loaderCanvas').show();
+	    	$('img.characters.dark').removeClass('dark');
+	    });
+	    {% endautoescape %}
+	</script>
+  </body>
+</html>
+{% endautoescape %}

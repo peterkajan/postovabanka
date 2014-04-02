@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+	  <title>Noc filmových hviezd</title>
+	  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  
+  <body class="intro">
+  
+      <div class="introcenter">  
+          <p>
+            <b> Union poisťovňa </b> v spolupráci s <b> Union zdravotnou poisťovňou </b> uvádzajú:
+          </p>
+      </div> 
+  
+  <img src="../images/imgnoveintro.png" alt="intro" style="display:block; margin-left:auto; margin-right:auto;">
+      
+  <div style="margin: auto; display: table;">
+      <div class="fline">  
+          <p>
+            <b>KEDY</b> 
+            <br>
+            20.12.2013 o 19:00 
+          </p>
+      </div> 
+      
+      <div class="fline">  
+          <p>
+            <b>V HLAVNEJ ÚLOHE</b> 
+            <br>
+            Kolektív zamestnancov UNION 
+          </p>
+      </div> 
+
+      <div class="fline">  
+          <p>
+            <b>KDE</b> 
+            <br>
+            Hotel Crowne Plaza
+            <br>
+            Hodžovo námestie 2
+            <br>
+            Bratislava 
+          </p>
+      </div> 
+   </div>   
+      <div class="introcenter" style="margin-top:-47px;">   
+          <p>
+            <b>ĎALEJ HRAJÚ</b> 
+            <br> 
+            Improvizačná divadelná skupina 3T 
+          </p>          
+          <p>
+            <b>HUDBA</b> 
+            <br> 
+            Jana Kirschner & band <br>
+            Deravé krpce a rolničky
+          </p>          
+
+          <p>
+            <b>MAJSTER ZVUKU</b> 
+            <br>
+            DJ Flebo 
+          </p>
+
+		  {% if not last %}
+	          <p>
+	            <b>REZERVUJTE</b> si preto Váš čas a vydajte sa po červenom koberci na vianočnú párty, aká tu ešte nebola! 
+	          </p>  
+	
+	          <p> 
+	            Pre potvrdenie účasti vyplňte, prosím, prihlasovací formulár  
+	          </p>
+          {% endif %}
+      </div> 
+      {% if not last %}
+	      <div> 
+	          <form action="main">
+	            <input type="submit" value="TU" class="startbutton"/>
+	          </form>
+	      </div>
+	  {% endif %}
+      <div class="introcenter">
+        {% if not last %}
+	        <p>
+	          najneskôr do 6.12. 2013. 
+	        </p>
+        {% endif %}
+        <p style="font-size: 12px;">
+          <b>V PRÍPADE AKÝCHKOĽVEK OTÁZOK,</b>
+          <br> 
+          sa môžete obrátiť na organizačný tím
+          <br>  
+          na e-mailovej adrese <a style="color: #D6944B;" href="mailto:union@branda.sk">union@branda.sk</a>.
+        </p>         
+      </div>
+      
+      <img src="../images/uniongold.png" alt="intro" style="display:block; margin-left:auto; margin-right:auto;">
+  
+  
+  </body>
+</html>
+{% endautoescape %}
