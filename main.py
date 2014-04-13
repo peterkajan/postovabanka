@@ -1,49 +1,37 @@
 ﻿from defines import *
-from movie import *
-from model import *
-from util import *
-from questions import *
-from anketePoints import *
-
-import os
-import urllib
-import re
+from django.conf import settings
+from forms import Page1Form
+from google.appengine.api import mail
+from google.appengine.ext.webapp import template
+from utils import BaseHandler, sessionConfig
 import logging
-import jinja2
+import os
 import webapp2
 
-from google.appengine.runtime import DeadlineExceededError
-from google.appengine.api import mail
-from google.appengine.runtime import apiproxy_errors
 
+settings.configure()
+settings.USE_I18N = False
 
-JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-    extensions=['jinja2.ext.autoescape'],
-    autoescape=True)
     
 URL_PAGE_1='/'
 URL_PAGE_2='/informacie'
 URL_PAGE_3='/potvrdenie'
 
-#move to utils
-def isEmailValid( email ):
-    return re.match(r"[^@]+@[^@]+\.[^@]+", email)
 
-
+def render_template(response, template_file, template_values):
+    path = os.path.join(os.path.dirname(__file__), template_file)
+    response.out.write(template.render(path, template_values))
+    
 class Page1(BaseHandler):
 
-    def displayPage(self, params={}, errors=[], errorIds=[]):
+    def displayPage(self, form):
         template_values = {
-            'p': params,
-            'errors': errors,
-            'errorIds': errorIds,
+            'form': form,
         }
-        template = JINJA_ENVIRONMENT.get_template('page1.html')
-        self.response.write(template.render(template_values))
+        render_template(self.response, 'page1.html', template_values)
         
     def get(self):
-        self.displayPage()
+        self.displayPage( Page1Form())
                          
     def validateData(self):
         errors = []
@@ -53,9 +41,10 @@ class Page1(BaseHandler):
             
             
     def post(self):
-        errors, errorIds = self.validateData() 
-        if errors:
-            self.displayPage( self.request.params, errors, errorIds )
+#         errors, errorIds = self.validateData()
+        form = Page1Form(data = self.request.params) 
+        if not form.is_valid():
+            self.displayPage( form )
             return
 
         self.redirect(URL_PAGE_2)
@@ -69,8 +58,7 @@ class Page2(BaseHandler):
             'errors': errors,
             'errorIds': errorIds,
         }
-        template = JINJA_ENVIRONMENT.get_template('page2.html')
-        self.response.write(template.render(template_values))
+        render_template(self.response, 'page2.html', template_values)
         
     def get(self):
         self.displayPage()
@@ -99,37 +87,27 @@ class Page3(BaseHandler):
             'errors': errors,
             'errorIds': errorIds,
         }
-        template = JINJA_ENVIRONMENT.get_template('page3.html')
-        self.response.write(template.render(template_values))
-        
+        render_template(self.response, 'page3.html', template_values)
+  
     def get(self):
         self.displayPage()
                          
         
-# def sendMail(empl):
-#     userAddress = empl.email
-#     senderAddress = MAIL_FROM
-#     subject = MAIL_SUBJECT
-#     #todo convert database data to displayable
-#     body = MAIL_TEXT % \
-#     {
-#         FIRST_NAME      : empl.firstname,
-#         LAST_NAME       : empl.lastname,
-#         EMPLOYER        : eployerLabels[empl.employer],
-#         WORKPLACE       : workplaces[ empl.workplace ],
-#         ACCOMODATION    : accomodationLabels[ empl.accomodation ],
-#         RESIDENCE       : empl.residence,
-#         ROOMMATE        : empl.roommate,
-#         CHARACTER       : empl.character,
-#     }
-#     mail.send_mail(senderAddress, userAddress, subject, body)
+def sendMail(guest):
+    userAddress = guest.email
+    senderAddress = MAIL_FROM
+    subject = MAIL_SUBJECT
+    
+    body = MAIL_TEXT
+    
+    mail.send_mail(senderAddress, userAddress, subject, body)
     
 
 application = webapp2.WSGIApplication([
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
         (URL_PAGE_3, Page3),
-    ], config = sessionConfig)
+    ], config = sessionConfig, debug=True)
 
 def main():
     # Set the logging level in the main function

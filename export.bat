@@ -1,2 +1,0 @@
-set PYTHONPATH=.
-appcfg.py download_data --config_file=exporter.py --filename=data_export.csv --kind=Employee --url=http://localhost:9080/_ah/remote_api --application=dev~filmovyformular D:\!Projects\MovieFormWorkspace\trunk

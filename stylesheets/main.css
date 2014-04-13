@@ -1,9 +1,16 @@
 body {
-	background: url('../images/background.jpg') no-repeat;
+	background-image: url('../images/background.jpg');
+	background-position: top center;
+	background-color: yellow;
+	background-repeat: no-repeat;
 }
 
 .content {
-	padding-top: 20%;
 	width: 500px;
-	margin: auto;
+	margin: 500px auto;
+	background: white;
+}
+
+.errorlist {
+	list-style: none;	
 }

@@ -2,7 +2,8 @@ from google.appengine.ext import db
 from google.appengine.tools import bulkloader
 from google.appengine.ext import ndb
 
-class EmployeeEntity(db.Model):
+class GuestEntity(db.Model):
+    """entitity to be exported"""
     firstname = db.StringProperty()
     lastname = db.StringProperty()
     email = db.StringProperty()

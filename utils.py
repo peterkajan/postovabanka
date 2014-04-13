@@ -22,3 +22,7 @@ class BaseHandler(webapp2.RequestHandler):
     def session(self):
         # Returns a session using the default cookie key.
         return self.session_store.get_session()
+    
+    
+def isEmailValid( email ):
+    return re.match(r"[^@]+@[^@]+\.[^@]+", email)
