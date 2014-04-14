@@ -45,7 +45,10 @@ body {
 	position: absolute;
 	bottom: 7%;
 	right: 7%;
-	background-color: rgba(30, 30, 30, 1);
+	background-color: rgba(30, 30, 30, 0.3);
+	border-style:solid;
+	border-color:white;
+	border-width:3px;
 	padding: 25px 25px 25px 25px;
 	width: 50%;
 	font-size:large;
