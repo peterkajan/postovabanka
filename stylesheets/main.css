@@ -5,12 +5,13 @@ body {
 	/*background-repeat: no-repeat;*/
 	font-family: arial, sans-serif;
 	color: white;
+	padding: 0px;
 }
 
 .h2 {
   font-weight: bold;
   font-style: italic;
-  font-size: large;
+  font-size: larger;
   text-transform:uppercase;
   color:white;	
 }
@@ -19,6 +20,7 @@ body {
 	width: 500px;
 	margin: 500px auto;
 	background-color: white;
+	padding:0px;
 }
 
 .front {
@@ -51,19 +53,20 @@ body {
 
 .text {
 	position: absolute;
-	top: 7%;
+	top: 0%;
 	left: 7%;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
-	background-color: rgba(30, 30, 30, 0.6);
+	background-color: rgba(30, 30, 30, 0.68);
 	border-style:solid;
 	border-color:white;
 	border-width:0px;
-	padding: 34px;
-	width: 15%;
-	min-width:180px;
+	padding: 100px 34px 34px 34px;
+	width: 200px;
 	text-align:left;
+	font-size:medium;
+	margin: 0px;
 }
 
 .sbutton{
@@ -74,7 +77,18 @@ body {
 	padding: 5px;
 	width: 150px;
 	color:white;
-	margin-left:auto;
+	margin-left:16px;
+}
+
+.sbutton:hover{
+	background-color: rgba(255,255, 255, 0.5);
+	/*border-style:solid;
+	border-color:white;
+	border-width:1px;
+	padding: 5px;
+	width: 150px;
+	color:white;
+	margin:auto;*/
 }
 
 
@@ -86,7 +100,7 @@ body {
 }
 
 .button:hover {
-	background-image: url('../images/button.jpeg');
+	background-image: url('../images/buttonH.png');
 }
 
 
