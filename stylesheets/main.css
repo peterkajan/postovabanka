@@ -43,8 +43,8 @@ body {
 .text {
 	color: white;
 	position: absolute;
-	bottom: 7%;
-	right: 7%;
+	top: 7%;
+	left: 7%;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
