@@ -1,16 +1,69 @@
 body {
-	background-image: url('../images/background.jpg');
-	background-position: top center;
-	background-color: yellow;
-	background-repeat: no-repeat;
+	/*background-image: url('../images/background.jpg');
+	background-position: top center;*/
+	background-color: #222;
+	/*background-repeat: no-repeat;*/
 }
 
 .content {
 	width: 500px;
 	margin: 500px auto;
-	background: white;
+	background-color: white;
+}
+
+.front {
+	z-index: 100;
 }
 
 .errorlist {
 	list-style: none;	
 }
+
+.image1 {
+	background-image: url('../images/image1.jpg');
+}
+
+.image2 {
+	background-image: url('../images/image2.jpg');
+}
+
+.focus {
+	z-index: -100;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.text {
+	color: #DDD;
+	position: absolute;
+	bottom: 6%;
+	right: 6%;
+	background-color: rgba(0, 0, 0, 0.35);
+	padding: 10px 15px;
+	width: 200px;
+}
+
+.button {
+	width: 30px;
+	height: 30px;
+}
+
+#button1 {
+	position: absolute;
+	top: 40%;
+	left: 25%;
+}
+
+#button2 {
+	position: absolute;
+	top: 60%;
+	left: 75%;
+}
+
+

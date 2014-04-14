@@ -8,28 +8,24 @@
   </head>
 
   <body>
-
-    <div class="content">
-      <form action="/" method="post">
-
-        <!-- <div class="errorMsg">
-          {{form.nonfield_errors}}
-        </div> -->
-        
-        {% autoescape off %} 
-        
-        {{ form.as_p|safe }}
-        {% endautoescape %}
-
-        <!-- <div>
-          <input maxlength="200" type="text" name="firstname" id="fname" {% if 'firstname' in errorIds %} class="error" {% endif%} value="{{form.fields.id_num.value}}"/>
-          <label for="fname">Identifikačné číslo</label>
-          <br>
-        </div> -->
-
-        <input type="submit" val="Pokračovať"/>
+		<div class="focus image1">
+			<p class="text text1">
+      	Dovolujeme si Vas pozvat na slavnostne uvedenie najnovsieho HTC One (M8)
+      </p>
+      
+      
+		</div>
+			
+		<div class="focus image2">
+			<form action="/" method="post">
+	      
+	      <p class="text text2">
+	      	29. aprila 2014 o 19:00 v restauracii Flow Eurovea, Vasu ucast prosim potvrdte <input type="submit" value="Tu" class="front"/>
+	      </p>
       </form>
-    </div>
-
+		</div>
+    
+  	<input type="image" src="images/button.jpeg" class="button front" id="button1"/>
+  	<input type="image" src="images/button.jpeg" class="button front" id="button2"/>
   </body>
 </html>
