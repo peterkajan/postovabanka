@@ -9,11 +9,13 @@ $( function() {
 		toggleFocus();
 		$(this).hide();
 		$('#button2').show();
+		$('.clickme').hide();
 	});
 	$('#button2').click( function(){
 		toggleFocus();
 		$(this).hide();
 		$('#button1').show();
+		$('.clickme').hide();
 	});	
 });
 

@@ -4,6 +4,7 @@ body {
 	background-color: #555;
 	/*background-repeat: no-repeat;*/
 	font-family: arial, sans-serif;
+	color: white;
 }
 
 .content {
@@ -41,7 +42,6 @@ body {
 }
 
 .text {
-	color: white;
 	position: absolute;
 	top: 7%;
 	left: 7%;
@@ -85,7 +85,7 @@ body {
 #button1 {
 	position: absolute;
 	top: 30%;
-	left: 50%;
+	right: 50%;
 }
 
 #button2 {
@@ -93,5 +93,28 @@ body {
 	top: 70%;
 	left: 50%;
 }
+
+
+.tooltip-connector {
+	margin-top: 25px;
+	top: 30%;
+	left: 50%;
+	width: 5%;
+	height: 1px;
+	background-color: #FFFFFF;
+	position: absolute;	
+}
+
+.tooltip {
+	border: 1px #FFFFFF solid;
+	width: 130px;
+	height: 40px;
+	top: 30%;
+	left: 55%;
+	position: absolute;
+	text-align: center;
+	padding-top: 20px;
+}
+
 
 
