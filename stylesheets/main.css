@@ -53,13 +53,14 @@ body {
 	border-color:white;
 	border-width:1px;
 	padding: 15px;
-	width: 10%;
+	width: 15%;
+	min-width:180px;
 	font-size:large;
 	text-align:left;
 }
 
 .sbutton{
-	background-color: rgba(30, 30, 30, 0.1);
+	background-color: rgba(30, 30, 30, 0);
 	border-style:solid;
 	border-color:white;
 	border-width:1px;
