@@ -44,10 +44,10 @@ body {
 	color: white;
 	position: absolute;
 	bottom: 7%;
-	/*right: 6%;*/
+	right: 7%;
 	background-color: rgba(0, 0, 0, 0.6);
 	padding: 20px 15px 20px 100px;
-	width: 100%;
+	width: 50%;
 	font-size:large;
 	text-align:center;
 }
