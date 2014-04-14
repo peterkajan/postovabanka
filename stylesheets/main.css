@@ -40,14 +40,14 @@ body {
 }
 
 .text {
-	color: green;
+	color: lightgreen;
 	position: absolute;
 	bottom: 6%;
 	right: 6%;
 	background-color: rgba(0, 0, 0, 0.00);
 	padding: 10px 15px;
-	width: 200px;
-	font-size:large;
+	width: 800px;
+	font-size:x-large;
 }
 
 .button {
