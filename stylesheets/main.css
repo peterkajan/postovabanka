@@ -48,7 +48,7 @@ body {
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
-	background-color: rgba(30, 30, 30, 0.4);
+	background-color: rgba(30, 30, 30, 0.1);
 	border-style:solid;
 	border-color:white;
 	border-width:1px;
@@ -59,11 +59,13 @@ body {
 }
 
 .sbutton{
-	background-color: rgba(30, 30, 30, 0.4);
+	background-color: rgba(30, 30, 30, 0.1);
 	border-style:solid;
 	border-color:white;
 	border-width:1px;
 	padding: 5px;
+	width: 150px;
+	color:white;
 }
 
 
