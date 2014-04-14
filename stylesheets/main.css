@@ -44,9 +44,9 @@ body {
 	color: white;
 	position: absolute;
 	bottom: 7%;
-	/*right: 6%;*/
-	background-color: rgba(0, 0, 0, 0.5);
-	padding: 10px 15px;
+	right: 6%;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 100px 15px;
 	width: 100%;
 	font-size:x-large;
 	text-align:center;
