@@ -1,4 +1,4 @@
-﻿from defines import *
+﻿import defines
 from django.conf import settings
 from forms import Page1Form
 from google.appengine.api import mail
@@ -16,6 +16,9 @@ settings.USE_I18N = False
 URL_PAGE_1='/'
 URL_PAGE_2='/informacie'
 URL_PAGE_3='/potvrdenie'
+
+if defines.PAGE_FLOW_2:
+    URL_PAGE_2 = URL_PAGE_3
 
 
 def render_template(response, template_file, template_values):
@@ -95,19 +98,24 @@ class Page3(BaseHandler):
         
 def sendMail(guest):
     userAddress = guest.email
-    senderAddress = MAIL_FROM
-    subject = MAIL_SUBJECT
+    senderAddress = defines.MAIL_FROM
+    subject = defines.MAIL_SUBJECT
     
-    body = MAIL_TEXT
+    body = defines.MAIL_TEXT
     
     mail.send_mail(senderAddress, userAddress, subject, body)
     
-
-application = webapp2.WSGIApplication([
+if defines.PAGE_FLOW_2:
+    pages = [
+        (URL_PAGE_1, Page1),
+        (URL_PAGE_3, Page3)]
+else:    
+    pages = [
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
-        (URL_PAGE_3, Page3),
-    ], config = sessionConfig, debug=True)
+        (URL_PAGE_3, Page3)]
+    
+application = webapp2.WSGIApplication(pages, config = sessionConfig, debug=True)
 
 def main():
     # Set the logging level in the main function

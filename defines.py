@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+PAGE_FLOW_2 = True
+
 MAIL_FROM = 'union@branda.sk'
 MAIL_SUBJECT = u'Noc filmových hviezd UNION'
 
