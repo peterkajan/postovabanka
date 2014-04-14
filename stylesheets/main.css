@@ -20,11 +20,11 @@ body {
 }
 
 .image1 {
-	background-image: url('../images/focusHtc.png');
+	background-image: url('../images/focusAlbrecht.png');
 }
 
 .image2 {
-	background-image: url('../images/focusAlbrecht.png');
+	background-image: url('../images/focusHtc.png');
 }
 
 .focus {
@@ -56,14 +56,14 @@ body {
 
 #button1 {
 	position: absolute;
-	top: 40%;
-	left: 25%;
+	top: 50%;
+	left: 75%;
 }
 
 #button2 {
 	position: absolute;
-	top: 60%;
-	left: 75%;
+	top: 50%;
+	left: 25%;
 }
 
 
