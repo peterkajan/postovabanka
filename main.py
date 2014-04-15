@@ -7,6 +7,8 @@ from utils import BaseHandler, sessionConfig
 import logging
 import os
 import webapp2
+from model import persistTestGuests, Guest
+from google.appengine.ext import ndb
 
 
 settings.configure()
@@ -18,6 +20,8 @@ URL_PAGE_2='/informacie'
 URL_PAGE_3='/potvrdenie'
 URL_PAGE_REJECT='/nezucatnim'
 
+URL_PAGE_SENDER='/send_mails_secret'
+
 if defines.PAGE_FLOW_2:
     URL_PAGE_2 = URL_PAGE_3
 
@@ -26,16 +30,51 @@ def render_template(response, template_file, template_values):
     path = os.path.join(os.path.dirname(__file__), template_file)
     response.out.write(template.render(path, template_values))
     
+
+def _getKey(handler):
+    key = None
+    keyUrl = handler.request.get('key')
+    if not keyUrl:
+        keyUrl = handler.session.get('key')
+        
+    if keyUrl:
+        try:
+            key = ndb.Key( urlsafe = keyUrl )
+        except (BaseException):
+            logging.exception('Failed to create key: %s', keyUrl)
+            handler.abort(404)    
+    else:
+        logging.info('No key in url or session')
+        handler.abort(404)
+    
+    handler.session['key'] = key.urlsafe()
+    return key
+
+def _getGuest(handler):
+    key = _getKey(handler);
+    try:
+        guest = key.get()
+        if not guest:
+            logging.error('Employee is None, key: %s', key.urlsafe())
+            handler.abort(404)
+        return guest
+    except (BaseException):
+        logging.exception('Failed to get guest, key: %s', key.urlsafe())
+        handler.abort(404)
+    
 class Page1(BaseHandler):
 
-    def displayPage(self, form):
-        template_values = {
-            'form': form,
-        }
-        render_template(self.response, 'page1.html', template_values)
+    def displayPage(self, **kwargs):
+        render_template(self.response, 'page1.html', kwargs)
         
     def get(self):
-        self.displayPage( Page1Form())
+        guest = _getGuest(self)
+        
+        logging.info('GET guest: ' + unicode(guest.firstname) 
+            + ' ' + unicode(guest.lastname  + ' ' + guest.email))   
+        
+        self.displayPage( firstname=guest.firstname )  
+        
                          
     def validateData(self):
         errors = []
@@ -46,6 +85,9 @@ class Page1(BaseHandler):
             
     def post(self):
         if 'accept' in self.request.POST:
+            guest = _getGuest(self)
+            guest.attend = 1
+            guest.put()
             return self.redirect(URL_PAGE_2)
         else:
             return self.redirect(URL_PAGE_REJECT)
@@ -81,16 +123,12 @@ class Page2(BaseHandler):
         
 class Page3(BaseHandler):
 
-    def displayPage(self, params={}, errors=[], errorIds=[]):
-        template_values = {
-            'p': params,
-            'errors': errors,
-            'errorIds': errorIds,
-        }
-        render_template(self.response, 'page3.html', template_values)
+    def displayPage(self, **kwargs):
+        render_template(self.response, 'page3.html', kwargs)
   
     def get(self):
-        self.displayPage()
+        guest = _getGuest(self)
+        self.displayPage(firstname=guest.firstname)
         
 class PageReject(BaseHandler):
 
@@ -105,7 +143,17 @@ class PageReject(BaseHandler):
     def get(self):
         self.displayPage()
                          
-                         
+
+class SenderPage(BaseHandler):
+    def get(self):
+        out = '\n'
+        for guest in Guest.query().fetch():
+            out += unicode( guest.firstname ) + ' ' + unicode( guest.lastname ) + '\n' + \
+                    ' ' + defines.DOMAIN + '?key=' + guest.key.urlsafe() + '\n';
+            
+        logging.info(out);
+        #TODO send mails
+        self.abort(404)                  
         
 def sendMail(guest):
     userAddress = guest.email
@@ -120,12 +168,15 @@ if defines.PAGE_FLOW_2:
     pages = [
         (URL_PAGE_1, Page1),
         (URL_PAGE_3, Page3),
-        (URL_PAGE_REJECT, PageReject)]
+        (URL_PAGE_REJECT, PageReject),
+        (URL_PAGE_SENDER, SenderPage)]
 else:    
     pages = [
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
-        (URL_PAGE_3, Page3)]
+        (URL_PAGE_3, Page3),
+        (URL_PAGE_REJECT, PageReject),
+        (URL_PAGE_SENDER, SenderPage)]
     
 application = webapp2.WSGIApplication(pages, config = sessionConfig, debug=True)
 

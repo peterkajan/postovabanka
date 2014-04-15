@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+DOMAIN = 'http://htcinvite.appspot.com/'
 PAGE_FLOW_2 = True
 
 MAIL_FROM = 'union@branda.sk'

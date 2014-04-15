@@ -1,11 +1,8 @@
+# -*- coding: utf-8 -*-
 from google.appengine.ext import ndb
 
 def exist(key):
     return key.get()
-
-def existGuest( email ):
-    key = ndb.Key(Guest, email)
-    return exist(key)
 
     
 class Guest(ndb.Model):
@@ -15,11 +12,13 @@ class Guest(ndb.Model):
     custom1 = ndb.StringProperty()
     custom2 = ndb.StringProperty()
     note = ndb.StringProperty()
- 
-        
-def persistGuest( empl ):
-    #todo another email check 
-    key = ndb.Key(Guest, empl.email)    
-    entity = Guest(key=key)
-    entity.set(empl)
-    entity.put()
+    attend = ndb.IntegerProperty(default=0)
+
+
+def persistTestGuests():
+    for i in range(10):
+        g = Guest()
+        g.firstname = 'Jožko{}'.format(i)
+        g.lastname = 'Mrkvička{}'.format(i)
+        g.email = 'jozko{}@geustflow.sk'.format(i)
+        g.put()
