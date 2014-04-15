@@ -126,7 +126,7 @@ a:active {color:white;}  /* selected link */
 	width: 50px;
 	height: 50px;
 	background-image: url('../images/button.png');
-	background-size: 50px;
+	background-size: cover;
 }
 
 .button:hover {
