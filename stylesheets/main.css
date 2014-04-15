@@ -8,10 +8,16 @@ body {
 	padding: 0px;
 }
 
+a:link {color:white;}      /* unvisited link */
+a:visited {color:white;}  /* visited link */
+a:hover {color:lightgray;}  /* mouse over link */
+a:active {color:white;}  /* selected link */
+
+
 .h2 {
   font-weight: bold;
   font-style: italic;
-  font-size: larger;
+  font-size: xx-large;
   text-transform:uppercase;
   color:white;	
 }
@@ -39,6 +45,10 @@ body {
 	background-image: url('../images/focusHtc.png');
 }
 
+.image3 {
+	background-image: url('../images/bgresult.jpg');
+}
+
 .focus {
 	z-index: -100;
 	position: absolute;
@@ -58,12 +68,31 @@ body {
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
 	border-radius: 0px;
-	background-color: rgba(30, 30, 30, 0.68);
+	background-color: rgba(30, 30, 30, 0.2);
 	border-style:solid;
 	border-color:white;
 	border-width:0px;
 	padding: 100px 34px 34px 34px;
 	width: 200px;
+	text-align:left;
+	font-size:medium;
+	
+	margin: 0px;
+}
+
+.restext {
+	position: absolute;
+	bottom: 20%;
+	left: 0%;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-style:solid;
+	border-color:white;
+	border-width:0px;
+	padding: 20px 20px 20px 150px;
+	width: 600px;
 	text-align:left;
 	font-size:medium;
 	margin: 0px;
@@ -78,6 +107,7 @@ body {
 	width: 150px;
 	color:white;
 	margin-left:16px;
+	font-size:16px;
 }
 
 .sbutton:hover{
@@ -129,14 +159,17 @@ body {
 
 .tooltip {
 	border: 1px #FFFFFF solid;
-	width: 130px;
+	width: 150px;
 	height: 40px;
-	top: 30%;
+	top: 29%;
 	left: 55%;
 	position: absolute;
 	text-align: center;
-	padding-top: 20px;
+	padding: 12px 10px 10px 10px;
 }
 
+.smaller {
+	font-size:smaller;
+}
 
 
