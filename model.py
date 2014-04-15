@@ -9,26 +9,13 @@ def existGuest( email ):
 
     
 class Guest(ndb.Model):
-    firstname = ndb.StringProperty(required = True)
-    lastname = ndb.StringProperty(required = True)
-    email = ndb.StringProperty(required = True)
-    employer = ndb.StringProperty(required = True)
-    workplace = ndb.StringProperty(required = True)
-    accomodation = ndb.StringProperty()
-    residence = ndb.StringProperty()
-    roommate = ndb.StringProperty()
-    character = ndb.StringProperty(required = True)
-    
-    def set(self, emp):
-        self.firstname      = emp.firstname   
-        self.lastname       = emp.lastname    
-        self.email          = emp.email       
-        self.employer       = emp.employer    
-        self.workplace      = emp.workplace   
-        self.accomodation   = emp.accomodation
-        self.residence      = emp.residence   
-        self.roommate       = emp.roommate    
-        self.character      = emp.character   
+    firstname = ndb.StringProperty()
+    lastname = ndb.StringProperty()
+    email = ndb.StringProperty()
+    custom1 = ndb.StringProperty()
+    custom2 = ndb.StringProperty()
+    note = ndb.StringProperty()
+ 
         
 def persistGuest( empl ):
     #todo another email check 
