@@ -16,6 +16,7 @@ settings.USE_I18N = False
 URL_PAGE_1='/'
 URL_PAGE_2='/informacie'
 URL_PAGE_3='/potvrdenie'
+URL_PAGE_REJECT='/nezucatnim'
 
 if defines.PAGE_FLOW_2:
     URL_PAGE_2 = URL_PAGE_3
@@ -44,14 +45,10 @@ class Page1(BaseHandler):
             
             
     def post(self):
-#         errors, errorIds = self.validateData()
-        form = Page1Form(data = self.request.params) 
-        if not form.is_valid():
-            self.displayPage( form )
-            return
-
-        self.redirect(URL_PAGE_2)
-        
+        if 'accept' in self.request.POST:
+            return self.redirect(URL_PAGE_2)
+        else:
+            return self.redirect(URL_PAGE_REJECT)
         
 class Page2(BaseHandler):
 
@@ -94,6 +91,20 @@ class Page3(BaseHandler):
   
     def get(self):
         self.displayPage()
+        
+class PageReject(BaseHandler):
+
+    def displayPage(self, params={}, errors=[], errorIds=[]):
+        template_values = {
+            'p': params,
+            'errors': errors,
+            'errorIds': errorIds,
+        }
+        render_template(self.response, 'pageReject.html', template_values)
+  
+    def get(self):
+        self.displayPage()
+                         
                          
         
 def sendMail(guest):
@@ -108,7 +119,8 @@ def sendMail(guest):
 if defines.PAGE_FLOW_2:
     pages = [
         (URL_PAGE_1, Page1),
-        (URL_PAGE_3, Page3)]
+        (URL_PAGE_3, Page3),
+        (URL_PAGE_REJECT, PageReject)]
 else:    
     pages = [
         (URL_PAGE_1, Page1),
