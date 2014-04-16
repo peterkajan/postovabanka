@@ -12,7 +12,7 @@ class Guest(ndb.Model):
     custom1 = ndb.StringProperty()
     custom2 = ndb.StringProperty()
     note = ndb.StringProperty()
-    attend = ndb.IntegerProperty(default=0)
+    attend = ndb.IntegerProperty()
 
 
 def persistTestGuests():

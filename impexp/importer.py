@@ -1,11 +1,6 @@
 from google.appengine.ext import db
 from google.appengine.tools import bulkloader
-
-class Guest(db.Model):
-    firstname = db.StringProperty()
-    lastname = db.StringProperty()
-    email = db.StringProperty()
-
+from model import Guest
 
 def fromUtf8( string ):
     return string.decode('utf-8')

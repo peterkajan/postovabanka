@@ -1,3 +1,11 @@
+#preloadedImages
+{
+    width: 0px;
+    height: 0px;
+    display: inline;
+    background-image: url('../images/buttonH.png');
+}
+
 body {
 	/*background-image: url('../images/background.jpg');
 	background-position: top center;*/

@@ -84,12 +84,15 @@ class Page1(BaseHandler):
             
             
     def post(self):
+        guest = _getGuest(self)
         if 'accept' in self.request.POST:
-            guest = _getGuest(self)
             guest.attend = 1
             guest.put()
+            sendConfirmationMail(guest)
             return self.redirect(URL_PAGE_2)
         else:
+            guest.attend = 0
+            guest.put()
             return self.redirect(URL_PAGE_REJECT)
         
 class Page2(BaseHandler):
@@ -148,21 +151,34 @@ class SenderPage(BaseHandler):
     def get(self):
         out = '\n'
         for guest in Guest.query().fetch():
+            link = generateLink(guest)
             out += unicode( guest.firstname ) + ' ' + unicode( guest.lastname ) + '\n' + \
-                    ' ' + defines.DOMAIN + '?key=' + guest.key.urlsafe() + '\n';
+                    ' ' + link + '\n';
+            sendInvitationMail(guest, link)       
             
-        logging.info(out);
-        #TODO send mails
+        logging.info('Links:\n' + out);
         self.abort(404)                  
         
-def sendMail(guest):
+def generateLink(guest):
+    return defines.DOMAIN + '?key=' + guest.key.urlsafe()
+
+
+def sendInvitationMail(guest, link):
     userAddress = guest.email
     senderAddress = defines.MAIL_FROM
-    subject = defines.MAIL_SUBJECT
-    
-    body = defines.MAIL_TEXT
-    
+    subject = defines.MAIL_INVITATION_SUBJECT
+    body = defines.MAIL_INVITATION_TEXT.format(mail_from=defines.MAIL_FROM, link=link)
     mail.send_mail(senderAddress, userAddress, subject, body)
+    logging.info('Invitation mail sent to %s', guest.email)
+    
+def sendConfirmationMail(guest):
+    userAddress = guest.email
+    senderAddress = defines.MAIL_FROM
+    subject = defines.MAIL_CONFIRMATION_SUBJECT
+    body = defines.MAIL_CONFIRMATION_TEXT.format(mail_from=defines.MAIL_FROM)
+    mail.send_mail(senderAddress, userAddress, subject, body)
+    logging.info('Confirmation mail sent to %s', guest.email)
+    
     
 if defines.PAGE_FLOW_2:
     pages = [

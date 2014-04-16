@@ -2,28 +2,32 @@
 DOMAIN = 'http://htcinvite.appspot.com/'
 PAGE_FLOW_2 = True
 
-MAIL_FROM = 'union@branda.sk'
-MAIL_SUBJECT = u'Noc filmových hviezd UNION'
+MAIL_FROM = 'peter.kajan@infinit.sk'
+MAIL_INVITATION_SUBJECT = u'Pozvánka na predstavenie HTC One (M8)'
+MAIL_INVITATION_TEXT = u"""
+Dobrý deň,
 
-MAIL_TEXT = u"""
-Ďakujeme za vyplnenie dotazníku, a zároveň potvrdzujeme zaregistrovanie Vašich údajov do databázy potvrdených účastníkov na vianočný večierok – Noc filmových hviezd UNION.
+pozývame Vás na predstavanie HTC One (M8). Prosím zaregistrujte sa na tejto adrese {link}.
+Ďakujeme
 
-Na základe Vašich odpovedí Vám bola vygenerovaná maska %(fig)s. 
-Budeme veľmi radi, ak prídete na vianočný večierok v tejto maske, filmový dress code ale nie je povinný. 
+S pozdravom
+organizačný tím
 
-Pripomíname, že vianočný večierok sa koná dňa 20.12.2013 o 19:00 v bratislavskom hoteli Crowne Plaza.
+V prípade akýchkoľvek nejasností, kontaktujte prosím organizačný tím na e-mailovej adrese {mail_from}.
+"""
 
-Vaše registračné údaje si môžete skontrolovať tu:
+MAIL_CONFIRMATION_SUBJECT = u'Potvrdenie účasti na predstavení HTC One (M8)'
 
-Krstné meno: %(fn)s
-Priezvisko: %(ln)s
-Zamestnávatel: %(emp)s
-Vaše Pracovisko: %(wrk)s
-Ubytovanie v hoteli Crowne Plaza: %(acc)s
-Váš preferovaný spolubývajúci: %(rmt)s
-Adresa Vášho trvalého bydliska: %(res)s
+MAIL_CONFIRMATION_TEXT = u"""
+Ďakujeme za registristráciu.
 
-V prípade akýchkoľvek nejasností, kontaktujte prosím organizačný tím na e-mailovej adrese union@branda.sk.
+Uvidíme sa X.X. o 18 00 v XXX
+Tešíme sa na Vás  
+
+S pozdravom
+organizačný tím
+
+V prípade akýchkoľvek nejasností, kontaktujte prosím organizačný tím na e-mailovej adrese {mail_from}.
 """
 
 ERROR_EMAIL_INVALID = u'Zadali ste nesprávny email'
