@@ -2,7 +2,7 @@
 DOMAIN = 'http://htcinvite.appspot.com/'
 PAGE_FLOW_2 = True
 
-MAIL_FROM = 'peter.kajan@infinit.sk'
+MAIL_FROM = 'peto.kajan@gmail.com'
 MAIL_INVITATION_SUBJECT = u'Pozvánka na predstavenie HTC One (M8)'
 MAIL_INVITATION_TEXT = u"""
 Dobrý deň,

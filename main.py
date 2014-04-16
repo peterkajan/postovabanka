@@ -194,7 +194,7 @@ else:
         (URL_PAGE_REJECT, PageReject),
         (URL_PAGE_SENDER, SenderPage)]
     
-application = webapp2.WSGIApplication(pages, config = sessionConfig, debug=True)
+application = webapp2.WSGIApplication(pages, config = sessionConfig)
 
 def main():
     # Set the logging level in the main function
