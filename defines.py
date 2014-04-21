@@ -6,7 +6,7 @@ MAIL_FROM = 'pozvanka@htc-one-m8.sk'
 MAIL_INVITATION_SUBJECT = u'Pozvánka na predstavenie HTC One (M8)'
 MAIL_INVITATION_TEXT = u"""
 Dobrý deň {name},
-Pozývame Vás na slávnostné predstavenie nového HTC One (M8), ktoré sa usutoční v utorok 29. apríla 2014 v reštaurácii Flow Eurovea. Začíname o 19:00.
+Pozývame Vás na slávnostné predstavenie nového HTC One (M8), ktoré sa usutoční v utorok 29. apríla 2014 v reštaurácii Flow McRoy Lounge Eurovea. Začíname o 19:00.
 RSVP: {link}
 Pozvánka platí pre jednu osobu.
 Prosíme o potvrdenie Vašej účati najneskôr do 25. apríla 2014. 
@@ -18,7 +18,7 @@ MAIL_CONFIRMATION_SUBJECT = u'Potvrdenie účasti na predstavení HTC One (M8)'
 MAIL_CONFIRMATION_TEXT = u"""
 Dobrý deň {name},
 Ďakujeme za potvrdenie Vašej účasti na predstavení nového HTC One (M8). 
-Tešíme sa na Vás v utorok 29. apríla v reštaurácii Flow Eurovea o 19:00.
+Tešíme sa na Vás v utorok 29. apríla v reštaurácii Flow McRoy Lounge Eurovea o 19:00.
 S pozdravom,
 HTC.
 """
