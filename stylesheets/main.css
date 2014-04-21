@@ -57,6 +57,10 @@ a:active {color:white;}  /* selected link */
 	background-image: url('../images/bgresult.jpg');
 }
 
+.image4 {
+	background-image: url('../images/background-intro.jpg');
+}
+
 .focus {
 	z-index: -100;
 	position: absolute;
@@ -80,8 +84,8 @@ a:active {color:white;}  /* selected link */
 	border-style:solid;
 	border-color:white;
 	border-width:0px;
-	padding: 100px 34px 34px 34px;
-	width: 200px;
+	padding: 70px 34px 34px 34px;
+	width: 250px;
 	text-align:left;
 	font-size:medium;
 	
