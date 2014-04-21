@@ -2,7 +2,7 @@
 DOMAIN = 'http://www.htc-one.m8.sk/'
 PAGE_FLOW_2 = True
 
-MAIL_FROM = 'peto.kajan@gmail.com'
+MAIL_FROM = 'pozvanka@htc-one.m8.sk'
 MAIL_INVITATION_SUBJECT = u'Pozvánka na predstavenie HTC One (M8)'
 MAIL_INVITATION_TEXT = u"""
 Dobrý deň {name},
