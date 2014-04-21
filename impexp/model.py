@@ -8,3 +8,4 @@ class Guest(db.Model):
     custom2 = db.StringProperty()
     note = db.StringProperty()
     attend = db.IntegerProperty()
+    register_time = db.DateTimeProperty()

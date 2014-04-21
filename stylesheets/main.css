@@ -173,6 +173,7 @@ a:active {color:white;}  /* selected link */
 	position: absolute;
 	text-align: center;
 	padding: 12px 10px 10px 10px;
+	background-color: rgba(30, 30, 30, 0.2);
 }
 
 .smaller {

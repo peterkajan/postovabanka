@@ -1,33 +1,37 @@
 # -*- coding: utf-8 -*-
-DOMAIN = 'http://htcinvite.appspot.com/'
+DOMAIN = 'http://www.htc-one.m8.sk/'
 PAGE_FLOW_2 = True
 
 MAIL_FROM = 'peto.kajan@gmail.com'
 MAIL_INVITATION_SUBJECT = u'Pozvánka na predstavenie HTC One (M8)'
 MAIL_INVITATION_TEXT = u"""
-Dobrý deň,
-
-pozývame Vás na predstavanie HTC One (M8). Prosím zaregistrujte sa na tejto adrese {link}.
-Ďakujeme
-
-S pozdravom
-organizačný tím
-
-V prípade akýchkoľvek nejasností, kontaktujte prosím organizačný tím na e-mailovej adrese {mail_from}.
+Dobrý deň {name},
+Pozývame Vás na slávnostné predstavenie nového HTC One M8, ktoré sa usutoční v utorok 29. apríla 2014 v reštaurácii Flow Eurovea. Začíname o 19:00.
+RSVP: {link}
+Pozvánka platí pre jednu osobu.
+Prosíme o potvrdenie Vašej účati najneskôr do 25. apríla 2014. 
+Ďakujeme.
+HTC
 """
 
 MAIL_CONFIRMATION_SUBJECT = u'Potvrdenie účasti na predstavení HTC One (M8)'
-
 MAIL_CONFIRMATION_TEXT = u"""
-Ďakujeme za registristráciu.
+Dobrý deň {name},
+Ďakujeme za potvrdenie Vašej účasti na predstavení nového HTC One M8. 
+Tešíme sa na Vás v utorok 29. apríla v reštaurácii Flow Eurovea o 19:00.
+S pozdravom,
+HTC.
+"""
 
-Uvidíme sa X.X. o 18 00 v XXX
-Tešíme sa na Vás  
-
-S pozdravom
-organizačný tím
-
-V prípade akýchkoľvek nejasností, kontaktujte prosím organizačný tím na e-mailovej adrese {mail_from}.
+MAIL_REJECTION = True
+MAIL_REJECTION_SUBJECT = u'Odmientutie účasti na predstavení HTC One (M8)'
+MAIL_REJECTION_TEXT = u"""
+Dobrý deň {name},
+Ďakujeme za Váš čas. Je nám lúto, že sa našej akcie nezúčastníte.
+Pokiaľ by ste si to rozmysleli, Vašu účasť môžete do piatku 25. apríla vždy potvrdiť na: {link} :).
+Ďakujeme.
+S pozdravom,
+HTC
 """
 
 ERROR_EMAIL_INVALID = u'Zadali ste nesprávny email'

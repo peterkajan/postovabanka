@@ -9,6 +9,7 @@ import os
 import webapp2
 from model import persistTestGuests, Guest
 from google.appengine.ext import ndb
+from google.appengine.runtime import DeadlineExceededError
 
 
 settings.configure()
@@ -18,9 +19,10 @@ settings.USE_I18N = False
 URL_PAGE_1='/'
 URL_PAGE_2='/informacie'
 URL_PAGE_3='/potvrdenie'
-URL_PAGE_REJECT='/nezucatnim'
+URL_PAGE_REJECT='/neucast'
 
 URL_PAGE_SENDER='/send_mails_secret'
+URL_PAGE_TEST_DATA_IMPORT='/import_secret'
 
 if defines.PAGE_FLOW_2:
     URL_PAGE_2 = URL_PAGE_3
@@ -40,18 +42,16 @@ def _getKey(handler):
     if keyUrl:
         try:
             key = ndb.Key( urlsafe = keyUrl )
+            handler.session['key'] = key.urlsafe()
         except (BaseException):
             logging.exception('Failed to create key: %s', keyUrl)
             handler.abort(404)    
     else:
         logging.info('No key in url or session')
-        handler.abort(404)
     
-    handler.session['key'] = key.urlsafe()
     return key
 
-def _getGuest(handler):
-    key = _getKey(handler);
+def _getGuest(handler, key):
     try:
         guest = key.get()
         if not guest:
@@ -67,24 +67,28 @@ class Page1(BaseHandler):
     def displayPage(self, **kwargs):
         render_template(self.response, 'page1.html', kwargs)
         
-    def get(self):
-        guest = _getGuest(self)
+    def displayAnonymPage(self, **kwargs):
+        render_template(self.response, 'page1_anonym.html', kwargs)
         
+    def get(self):
+        key = _getKey(self)
+        if not key:
+            return self.displayAnonymPage()
+        
+        guest = _getGuest(self, key)
         logging.info('GET guest: ' + unicode(guest.firstname) 
             + ' ' + unicode(guest.lastname  + ' ' + guest.email))   
         
-        self.displayPage( firstname=guest.firstname )  
-        
+        return self.displayPage( firstname=guest.firstname )  
                          
     def validateData(self):
         errors = []
         errorIds = []
-        
         return errors, errorIds
             
-            
     def post(self):
-        guest = _getGuest(self)
+        key = ndb.Key( urlsafe = self.session.get('key'))
+        guest = _getGuest(self, key)
         if 'accept' in self.request.POST:
             guest.attend = 1
             guest.put()
@@ -93,7 +97,10 @@ class Page1(BaseHandler):
         else:
             guest.attend = 0
             guest.put()
+            if defines.MAIL_REJECTION:
+                sendRejectionMail(guest, generateLink(guest))
             return self.redirect(URL_PAGE_REJECT)
+        
         
 class Page2(BaseHandler):
 
@@ -130,7 +137,8 @@ class Page3(BaseHandler):
         render_template(self.response, 'page3.html', kwargs)
   
     def get(self):
-        guest = _getGuest(self)
+        key = ndb.Key( urlsafe = self.session.get('key'))
+        guest = _getGuest(self, key)
         self.displayPage(firstname=guest.firstname)
         
 class PageReject(BaseHandler):
@@ -163,36 +171,62 @@ def generateLink(guest):
     return defines.DOMAIN + '?key=' + guest.key.urlsafe()
 
 
+def _sendMail(senderAddress, userAddress, subject, body):
+    try:
+        mail.send_mail(senderAddress, userAddress, subject, body)
+    except (Exception, DeadlineExceededError):
+        logging.exception('Failed to send email %s ', userAddress) 
+            
 def sendInvitationMail(guest, link):
+    logging.info('Sending invitation mail sent to %s', guest.email)
     userAddress = guest.email
     senderAddress = defines.MAIL_FROM
     subject = defines.MAIL_INVITATION_SUBJECT
-    body = defines.MAIL_INVITATION_TEXT.format(mail_from=defines.MAIL_FROM, link=link)
-    mail.send_mail(senderAddress, userAddress, subject, body)
-    logging.info('Invitation mail sent to %s', guest.email)
+    body = defines.MAIL_INVITATION_TEXT.format(name=guest.firstname, link=link)
+    _sendMail(senderAddress, userAddress, subject, body)
+    logging.info('Invitation mail sent successfully')
     
 def sendConfirmationMail(guest):
+    logging.info('Sending confirmation mail to %s', guest.email)
     userAddress = guest.email
     senderAddress = defines.MAIL_FROM
     subject = defines.MAIL_CONFIRMATION_SUBJECT
-    body = defines.MAIL_CONFIRMATION_TEXT.format(mail_from=defines.MAIL_FROM)
-    mail.send_mail(senderAddress, userAddress, subject, body)
-    logging.info('Confirmation mail sent to %s', guest.email)
+    body = defines.MAIL_CONFIRMATION_TEXT.format(name=guest.firstname,)
+    _sendMail(senderAddress, userAddress, subject, body)
+    logging.info('Confirmation mail sent successfully')
     
+def sendRejectionMail(guest, link):
+    logging.info('Sending rejection mail to %s', guest.email)
+    userAddress = guest.email
+    senderAddress = defines.MAIL_FROM
+    subject = defines.MAIL_REJECTION_SUBJECT
+    body = defines.MAIL_REJECTION_TEXT.format(name=guest.firstname, link=link)
+    _sendMail(senderAddress, userAddress, subject, body)
+    logging.info('Rejection mail sent successfully')
     
+class TestDataImportPage(BaseHandler):
+    def get(self):
+        persistTestGuests()
+        self.abort(404)
+    
+
+
 if defines.PAGE_FLOW_2:
-    pages = [
+    flow_pages = [
         (URL_PAGE_1, Page1),
         (URL_PAGE_3, Page3),
-        (URL_PAGE_REJECT, PageReject),
-        (URL_PAGE_SENDER, SenderPage)]
-else:    
-    pages = [
+    ]
+else:
+    flow_pages = [    
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
         (URL_PAGE_3, Page3),
-        (URL_PAGE_REJECT, PageReject),
-        (URL_PAGE_SENDER, SenderPage)]
+    ]        
+    
+pages = flow_pages + [
+    (URL_PAGE_REJECT, PageReject),
+    (URL_PAGE_SENDER, SenderPage),
+    (URL_PAGE_TEST_DATA_IMPORT, TestDataImportPage)]
     
 application = webapp2.WSGIApplication(pages, config = sessionConfig)
 
