@@ -11,7 +11,7 @@ RSVP: {link}
 Pozvánka platí pre jednu osobu.
 Prosíme o potvrdenie Vašej účati najneskôr do 25. apríla 2014. 
 Ďakujeme.
-HTC
+Vaše HTC
 """
 
 MAIL_CONFIRMATION_SUBJECT = u'Potvrdenie účasti na predstavení HTC One (M8)'
@@ -20,7 +20,7 @@ Dobrý deň {name},
 Ďakujeme za potvrdenie Vašej účasti na predstavení nového HTC One (M8). 
 Tešíme sa na Vás v utorok 29. apríla v reštaurácii Flow McRoy Lounge Eurovea o 19:00.
 S pozdravom,
-HTC.
+Vaše HTC
 """
 
 MAIL_REJECTION = True
@@ -31,7 +31,7 @@ Dobrý deň {name},
 Vaš rozhodnutie môžete do piatku 25. apríla zmeniť prostredníctvom: {link} :).
 Ďakujeme.
 S pozdravom,
-HTC
+Vaše HTC
 """
 
 ERROR_EMAIL_INVALID = u'Zadali ste nesprávny email'
