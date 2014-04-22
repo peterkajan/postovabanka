@@ -161,18 +161,20 @@ class PageReject(BaseHandler):
 class SenderPage(BaseHandler):
     def get(self):
         out = '\n'
+        links = []
         for guest in Guest.query().fetch():
             link = generateLink(guest)
             out += unicode( guest.firstname ) + ' ' + unicode( guest.lastname ) + '\n' + \
                     ' ' + link + '\n';
-            sendInvitationMail(guest, link)       
+            #sendInvitationMail(guest, link)
+            links.append(link)       
             
         logging.info('Links:\n' + out);
+        logging.info('Links machine:\n%s', links);
         self.abort(404)                  
         
 def generateLink(guest):
     return defines.DOMAIN + '?key=' + guest.key.urlsafe()
-
 
 def _sendMail(senderAddress, userAddress, subject, body):
     try:
