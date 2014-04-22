@@ -9,7 +9,7 @@ Dobrý deň {name},
 Pozývame Vás na slávnostné predstavenie nového HTC One (M8), ktoré sa usutoční v utorok 29. apríla 2014 v reštaurácii Flow McRoy Lounge Eurovea. Začíname o 19:00.
 RSVP: {link}
 Pozvánka platí pre jednu osobu.
-Prosíme o potvrdenie Vašej účati najneskôr do 25. apríla 2014. 
+Prosíme o potvrdenie Vašej účasti najneskôr do 25. apríla 2014. 
 Ďakujeme.
 Vaše HTC
 """
