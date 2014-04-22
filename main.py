@@ -44,23 +44,23 @@ def _getKey(handler):
             key = ndb.Key( urlsafe = keyUrl )
             handler.session['key'] = key.urlsafe()
         except (BaseException):
-            logging.exception('Failed to create key: %s', keyUrl)
-            handler.abort(404)    
+            logging.exception('Failed to create key: %s', keyUrl)    
     else:
         logging.info('No key in url or session')
     
     return key
 
 def _getGuest(handler, key):
+    guest = None
     try:
         guest = key.get()
         if not guest:
-            logging.error('Employee is None, key: %s', key.urlsafe())
-            handler.abort(404)
-        return guest
+            logging.error('Guest is None, key: %s', key.urlsafe())
+        
     except (BaseException):
         logging.exception('Failed to get guest, key: %s', key.urlsafe())
-        handler.abort(404)
+        
+    return guest
     
 class Page1(BaseHandler):
 
@@ -76,6 +76,9 @@ class Page1(BaseHandler):
             return self.displayAnonymPage()
         
         guest = _getGuest(self, key)
+        if not guest:
+            return self.displayAnonymPage()
+        
         logging.info('GET guest: ' + unicode(guest.firstname) 
             + ' ' + unicode(guest.lastname  + ' ' + guest.email))   
         
