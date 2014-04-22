@@ -11,8 +11,7 @@ class GuestLoader(bulkloader.Loader):
         bulkloader.Loader.__init__(self, 'Guest',
                                    [('firstname', fromUtf8),
                                     ('lastname', fromUtf8),
-                                    ('email', str),
-                                    ('register_time', lambda time: None)
+                                    ('email', str)
                                    ])
 
 loaders = [GuestLoader]
