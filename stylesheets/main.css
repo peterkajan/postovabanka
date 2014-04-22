@@ -3,13 +3,16 @@
     width: 0px;
     height: 0px;
     display: inline;
-    background-image: url('../images/buttonH.png');
+    /*add images to be preloaded*/
 }
 
 body {
 	/*background-image: url('../images/background.jpg');
 	background-position: top center;*/
 	background-color: #555;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
 	/*background-repeat: no-repeat;*/
 	font-family: arial, sans-serif;
 	color: white;
@@ -45,32 +48,12 @@ a:active {color:white;}  /* selected link */
 	list-style: none;	
 }
 
-.image1 {
-	background-image: url('../images/htcfocuseurovea.jpg');
-}
-
-.image2 {
-	background-image: url('../images/htcfocusFlow.jpg');
-}
-
 .image3 {
 	background-image: url('../images/bgresult.jpg');
 }
 
 .image4 {
 	background-image: url('../images/background-intro.jpg');
-}
-
-.focus {
-	z-index: -100;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
 }
 
 .text {
@@ -87,8 +70,7 @@ a:active {color:white;}  /* selected link */
 	padding: 70px 34px 34px 34px;
 	width: 250px;
 	text-align:left;
-	font-size:medium;
-	
+	font-size:medium;	
 	margin: 0px;
 }
 
@@ -123,61 +105,6 @@ a:active {color:white;}  /* selected link */
 
 .sbutton:hover{
 	background-color: rgba(255,255, 255, 0.5);
-	/*border-style:solid;
-	border-color:white;
-	border-width:1px;
-	padding: 5px;
-	width: 150px;
-	color:white;
-	margin:auto;*/
-}
-
-
-.button {
-	width: 50px;
-	height: 50px;
-	background-image: url('../images/button.png');
-	background-size: cover;
-}
-
-.button:hover {
-	background-image: url('../images/buttonH.png');
-}
-
-
-#button1 {
-	position: absolute;
-	top: 30%;
-	right: 50%;
-}
-
-#button2 {
-	position: absolute;
-	top: 70%;
-	left: 50%;
-}
-
-
-.tooltip-connector {
-	margin-top: 25px;
-	top: 30%;
-	left: 50%;
-	width: 5%;
-	height: 1px;
-	background-color: #FFFFFF;
-	position: absolute;	
-}
-
-.tooltip {
-	border: 1px #FFFFFF solid;
-	width: 150px;
-	height: 40px;
-	top: 29%;
-	left: 55%;
-	position: absolute;
-	text-align: center;
-	padding: 12px 10px 10px 10px;
-	background-color: rgba(30, 30, 30, 0.2);
 }
 
 .smaller {

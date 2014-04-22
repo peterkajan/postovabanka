@@ -27,7 +27,6 @@ URL_PAGE_TEST_DATA_IMPORT='/import_secret'
 if defines.PAGE_FLOW_2:
     URL_PAGE_2 = URL_PAGE_3
 
-
 def render_template(response, template_file, template_values):
     path = os.path.join(os.path.dirname(__file__), template_file)
     response.out.write(template.render(path, template_values))
@@ -206,12 +205,12 @@ def sendRejectionMail(guest, link):
     body = defines.MAIL_REJECTION_TEXT.format(name=guest.firstname, link=link)
     _sendMail(senderAddress, userAddress, subject, body)
     logging.info('Rejection mail sent successfully')
+
     
 class TestDataImportPage(BaseHandler):
     def get(self):
         persistTestGuests()
-        self.abort(404)
-    
+        self.abort(404)    
 
 
 if defines.PAGE_FLOW_2:
@@ -239,6 +238,5 @@ def main():
     # App Engine reuses your request handlers when you specify a main function
     logging.getLogger().setLevel(logging.INFO)
     
-
 if __name__ == '__main__':
     main()
