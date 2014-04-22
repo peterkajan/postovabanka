@@ -161,7 +161,7 @@ class PageReject(BaseHandler):
 class SenderPage(BaseHandler):
     def get(self):
         
-        guests = [(u'Jo\u017eko7', u'Mrkvi\u010dka7', u'jozko7@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICgCAw'), (u'Jo\u017eko3', u'Mrkvi\u010dka3', u'jozko3@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgIDACAw'), (u'Jo\u017eko1', u'Mrkvi\u010dka1', u'jozko1@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICACQw'), (u'Jo\u017eko9', u'Mrkvi\u010dka9', u'jozko9@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICgCQw'), (u'Jo\u017eko5', u'Mrkvi\u010dka5', u'jozko5@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgIDACQw'), (u'Jo\u017eko0', u'Mrkvi\u010dka0', u'jozko0@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICACgw'), (u'Jo\u017eko8', u'Mrkvi\u010dka8', u'jozko8@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICgCgw'), (u'Jo\u017eko4', u'Mrkvi\u010dka4', u'jozko4@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgIDACgw'), (u'Jo\u017eko2', u'Mrkvi\u010dka2', u'jozko2@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICACww'), (u'Jo\u017eko6', u'Mrkvi\u010dka6', u'jozko6@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgIDACww')]
+        guests = [(u'Krist\xedna', u'Benkovi\u010dov\xe1', u'benkovicova@tccm.com', 'http://www.htc-one-m8.sk/?key=agtzfmh0Y2ludml0ZXISCxIFR3Vlc3QYgICAgICu2QgM'), (u'Claudia', u'Petoova', u'petoova@tccm.com', 'http://www.htc-one-m8.sk/?key=agtzfmh0Y2ludml0ZXISCxIFR3Vlc3QYgICAgICumQkM'), (u'Zlatica', u'Kubekova', u'zlatica.kubekova@gmail.com', 'http://www.htc-one-m8.sk/?key=agtzfmh0Y2ludml0ZXISCxIFR3Vlc3QYgICAgICu2QkM'), (u'Petra', u'Palesova', u'petra.palesova@gmail.com', 'http://www.htc-one-m8.sk/?key=agtzfmh0Y2ludml0ZXISCxIFR3Vlc3QYgICAgICumQoM'), (u'Peter', u'Kajan', u'peto.kajan@gmail.com', 'http://www.htc-one-m8.sk/?key=agtzfmh0Y2ludml0ZXISCxIFR3Vlc3QYgICAgICu2QoM'), (u'Peter', u'Kleinedler', u'peter@branda.sk', 'http://www.htc-one-m8.sk/?key=agtzfmh0Y2ludml0ZXISCxIFR3Vlc3QYgICAgICumQsM'), (u'Vojto', u'kubek', u'vojtokubek@gmail.com', 'http://www.htc-one-m8.sk/?key=agtzfmh0Y2ludml0ZXISCxIFR3Vlc3QYgICAgICu2QsM')]
         out = ''
         for guest in guests:
             firstname = guest[0]
@@ -193,7 +193,7 @@ def sendInvitationMail(firstname, lastname, email, link):
     subject = defines.MAIL_INVITATION_SUBJECT
     body = defines.MAIL_INVITATION_TEXT.format(name=firstname, link=link)
     _sendMail(senderAddress, userAddress, subject, body)
-    logging.info('Invitation mail sent successfully')
+    logging.info('Invitation mail sent successfully: %s', link)
     
 def sendConfirmationMail(guest):
     logging.info('Sending confirmation mail to %s', guest.email)
