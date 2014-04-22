@@ -1,7 +1,7 @@
 ﻿import defines
 from django.conf import settings
 from forms import Page1Form
-# from google.appengine.api import mail
+from google.appengine.api import mail
 from google.appengine.ext.webapp import template
 from utils import BaseHandler, sessionConfig
 import logging
@@ -10,7 +10,6 @@ import webapp2
 from model import persistTestGuests, Guest
 from google.appengine.ext import ndb
 from google.appengine.runtime import DeadlineExceededError
-import sendgrid
 
 
 settings.configure()
@@ -177,11 +176,7 @@ def generateLink(guest):
 
 def _sendMail(senderAddress, userAddress, subject, body):
     try:
-        s = sendgrid.Sendgrid('entropia', 'vojtokubek1', secure=True)
-        message = sendgrid.Message(senderAddress, subject, body)
-        message.add_to(userAddress)
-        s.web.send(message)
-        #mail.send_mail(senderAddress, userAddress, subject, body)
+        mail.send_mail(senderAddress, userAddress, subject, body)
     except (Exception, DeadlineExceededError):
         logging.exception('Failed to send email %s ', userAddress) 
             
