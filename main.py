@@ -1,7 +1,7 @@
 ﻿import defines
 from django.conf import settings
 from forms import Page1Form
-# from google.appengine.api import mail
+from google.appengine.api import mail
 from google.appengine.ext.webapp import template
 from utils import BaseHandler, sessionConfig
 import logging
@@ -10,7 +10,6 @@ import webapp2
 from model import persistTestGuests, Guest
 from google.appengine.ext import ndb
 from google.appengine.runtime import DeadlineExceededError
-import sendgrid
 
 
 settings.configure()
@@ -161,12 +160,18 @@ class PageReject(BaseHandler):
 
 class SenderPage(BaseHandler):
     def get(self):
-        out = '\n'
-        for guest in Guest.query().fetch():
-            link = generateLink(guest)
-            out += unicode( guest.firstname ) + ' ' + unicode( guest.lastname ) + '\n' + \
+        
+        guests = [(u'Jo\u017eko7', u'Mrkvi\u010dka7', u'jozko7@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICgCAw'), (u'Jo\u017eko3', u'Mrkvi\u010dka3', u'jozko3@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgIDACAw'), (u'Jo\u017eko1', u'Mrkvi\u010dka1', u'jozko1@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICACQw'), (u'Jo\u017eko9', u'Mrkvi\u010dka9', u'jozko9@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICgCQw'), (u'Jo\u017eko5', u'Mrkvi\u010dka5', u'jozko5@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgIDACQw'), (u'Jo\u017eko0', u'Mrkvi\u010dka0', u'jozko0@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICACgw'), (u'Jo\u017eko8', u'Mrkvi\u010dka8', u'jozko8@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICgCgw'), (u'Jo\u017eko4', u'Mrkvi\u010dka4', u'jozko4@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgIDACgw'), (u'Jo\u017eko2', u'Mrkvi\u010dka2', u'jozko2@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgICACww'), (u'Jo\u017eko6', u'Mrkvi\u010dka6', u'jozko6@geustflow.sk', 'http://www.htc-one-m8.sk/?key=ag1kZXZ-aHRjaW52aXRlchILEgVHdWVzdBiAgICAgIDACww')]
+        out = ''
+        for guest in guests:
+            firstname = guest[0]
+            lastname = guest[1]
+            email = guest[2]
+            link = guest[3]
+            
+            out += unicode( firstname ) + ' ' + unicode( lastname ) + '\n' + \
                     ' ' + link + '\n';
-            sendInvitationMail(guest, link)       
+            sendInvitationMail(firstname, lastname, email, link)       
             
         logging.info('Links:\n' + out);
         self.abort(404)                  
@@ -177,20 +182,16 @@ def generateLink(guest):
 
 def _sendMail(senderAddress, userAddress, subject, body):
     try:
-        s = sendgrid.Sendgrid('entropia', 'vojtokubek1', secure=True)
-        message = sendgrid.Message(senderAddress, subject, body)
-        message.add_to(userAddress)
-        s.web.send(message)
-        #mail.send_mail(senderAddress, userAddress, subject, body)
+        mail.send_mail(senderAddress, userAddress, subject, body)
     except (Exception, DeadlineExceededError):
         logging.exception('Failed to send email %s ', userAddress) 
             
-def sendInvitationMail(guest, link):
-    logging.info('Sending invitation mail sent to %s', guest.email)
-    userAddress = guest.email
+def sendInvitationMail(firstname, lastname, email, link):
+    logging.info('Sending invitation mail sent to %s', email)
+    userAddress = email
     senderAddress = defines.MAIL_FROM
     subject = defines.MAIL_INVITATION_SUBJECT
-    body = defines.MAIL_INVITATION_TEXT.format(name=guest.firstname, link=link)
+    body = defines.MAIL_INVITATION_TEXT.format(name=firstname, link=link)
     _sendMail(senderAddress, userAddress, subject, body)
     logging.info('Invitation mail sent successfully')
     
