@@ -167,7 +167,7 @@ class SenderPage(BaseHandler):
             out += unicode( guest.firstname ) + ' ' + unicode( guest.lastname ) + '\n' + \
                     ' ' + link + '\n';
             #sendInvitationMail(guest, link)
-            links.append(link)       
+            links.append((guest.firstname, guest.lastname, guest.email, link))       
             
         logging.info('Links:\n' + out);
         logging.info('Links machine:\n%s', links);
