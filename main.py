@@ -171,6 +171,7 @@ class SenderPage(BaseHandler):
             
         logging.info('Links:\n' + out);
         logging.info('Links machine:\n%s', links);
+        _sendMail(defines.MAIL_FROM, 'peto.kajan@gmail.com', 'Links', unicode(links))
         self.abort(404)                  
         
 def generateLink(guest):
