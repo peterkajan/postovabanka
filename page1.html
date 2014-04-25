@@ -8,29 +8,28 @@
   </head>
 
   <body>
-		<div class="focus image1">
-			<p class="text text1">
-      			Dobrý deň Kristína,
-      			</br>
-      			dovoľujeme si Vás pozvať na slávnostné predstavenie <b> HTC </b> One (m8).
-				Viac informácii získate klinutím na biely spot vyššie.
-      </p>
-      
-      
-		</div>
-			
-		<div class="focus image2">
-			<form action="/" method="post">
-	      
-	      <p class="text text2">
-	      	Prídte objaviť ešte viac funkcií nového HTC One v <b> utorok 29. aprila 2014 o 19:00 do hotelu Albrecht </b>. 
-	      	</br>
-	      	Vašu účasť prosím potvrdte <input type="submit" value="Tu" class="front"/>
-	      </p>
+
+    <div class="content">
+      <form action="/" method="post">
+
+        <!-- <div class="errorMsg">
+          {{form.nonfield_errors}}
+        </div> -->
+        
+        {% autoescape off %} 
+        
+        {{ form.as_p|safe }}
+        {% endautoescape %}
+
+        <!-- <div>
+          <input maxlength="200" type="text" name="firstname" id="fname" {% if 'firstname' in errorIds %} class="error" {% endif%} value="{{form.fields.id_num.value}}"/>
+          <label for="fname">Identifikačné číslo</label>
+          <br>
+        </div> -->
+
+        <input type="submit" val="Pokračovať"/>
       </form>
-		</div>
-    
-  	<input type="image" src="images/button.png" class="button front" id="button1"/>
-  	<input type="image" src="images/button.png" class="button front" id="button2"/>
+    </div>
+
   </body>
 </html>
