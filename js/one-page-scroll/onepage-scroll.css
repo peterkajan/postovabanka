@@ -64,7 +64,7 @@ body, .onepage-wrapper, html {
   width: 30px;
   height: 30px;
   background: none;
-  border: 1px solid white;
+  border: 2px solid white;
   margin-top: -4px;
   left: 16px;
 }

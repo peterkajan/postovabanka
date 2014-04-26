@@ -26,21 +26,35 @@
 		<div class="content">
 			<form class="content" action="/" method="post">
 				<div class="main">
-				
-
-					<section class="page1">
+						<section class="page1">
+                            <div class="headingdiv">
+                             <h1>UNION FESTIVAL ZDRAVIA NA VAŠE ŽELANIE</h1>
+                             <h2>
+                                 Stačí si len vybrať to, čo by ste chceli vidieť, 
+                                 počuť, zažiť a cítiť sa pri tom happy :). 
+                                 Vyplnte krátky formulár, zúčastnite sa na tvorbe 
+                                 program festivalu a vyhrajte zdravý balíček na mieru!
+                             </h2>
+                            </div>
+						    
 						<div class="page_container">
-							<h1>Vitajte </h1>
-							<h2>Union Happy main page</h2>
 						</div>
 					</section>
+					
 					<section class="page2">
+				      <div class="headingdiv">
+                         <h1>NAJVIAC SA CÍTIM HAPPY PRI:</h1>
+                        </div>
 						<div class="page_container">
-							<h1>2 stranka </h1>
-							<h2>Union Happy second page</h2>
 							<div class="activity">
 			        	{% for at_lbl in form.activity_type_labels %}
-		        			<a id="activity-type-btn-{{forloop.counter|add:-1}}"><div class="activity-button">{{at_lbl}}</div></a>
+		        			<a id="activity-type-btn-{{forloop.counter|add:-1}}">
+		        			    <div class="activity-button">
+		        			        <div class="activity-text">
+		        			        {{at_lbl}}
+		        			        </div>
+		        			        </div>
+		        			</a>
 			  				{% endfor %}
 			  				
 								<div class="hidden">
@@ -54,9 +68,10 @@
 						</div>
 					</section>
 					<section class="page2-1">
+					      <div class="headingdiv">
+                         <h1>ZO ŠPORTOVÝCH AKTIVÍT BY SOM SA NAJRADŠEJ ZÚČASTNIL:</h1>
+                        </div>
 						<div class="page_container">
-							<h1>2 stranka </h1>
-							<h2>Union Happy second page</h2>
 							<div class="activity">
 								{% for at in form.activity_sports %}
 			  					<div>
@@ -67,9 +82,10 @@
 						</div>
 					</section>
 					<section class="page2-2">
+					      <div class="headingdiv">
+                         <h1>VYBER SI NIEKOĽKO AKTIVÍT, KOTRÉ ŤA NA PRVÝ POHĽAD ZAUJALI A CHCEL/A BY SI ICH VYSKÚŠAŤ</h1>
+                        </div>
 						<div class="page_container">
-							<h1>2 stranka </h1>
-							<h2>Union Happy second page</h2>
 							<div class="activity">
 								{% for at in form.activities %}
 			  					<div>
@@ -80,9 +96,13 @@
 						</div>
 					</section>
 					<section class="page3">
+					      <div class="headingdiv">
+                             <h1>SMIECH JE ZDRAVÝ. ZDRAVIE PRINÁŠA ŠTASTIE</h1>
+                             <h2>
+                                Pošli svoj obľúbený vtip, ktorý dostane šancu rozosmiať a roztlieskať Tvojich kolegov. Ak ich na evente rozosmeje najviac, prinesie Ti šťastie. Vyhráš peknú cenu.
+                             </h2>
+                            </div>
 						<div class="page_container">
-							<h1>3 stranka </h1>
-							<h2>Union Happy third page</h2>
 							
 							<div class="joke">
 			        	<!-- <textarea name="joke" rows="30" cols="100" placeholder="vtip"></textarea>  -->
@@ -91,9 +111,14 @@
 						</div>
 					</section>
 					<section class="page4">
+                          <div class="headingdiv">
+                             <h1>ČO PRE TEBA ZNAMENÁ BYŤ ZDRAVÝ, ŠTASTNÝ, SVETOVÝ?</h1>
+                             <h2>
+                                Pošli vlastnú  “happy fotografiu”. Tá najlepšia bude odmenené balíčkom zdravia pre Teba alebo celý tím! :)
+                             </h2>
+                            </div>
+					    
 						<div class="page_container">
-							<h1>4 stranka </h1>
-							<h2>Union Happy fourth page</h2>
 							<div class="photo">
 			        	{{ form.photo|safe }}
 			        </div>
