@@ -46,6 +46,7 @@ class Page1(BaseHandler):
             self.displayPage( form )
             return
 
+        form.save()
         self.redirect(URL_PAGE_2)
         
         
