@@ -1,11 +1,39 @@
 # -*- coding: utf-8 -*-
 ACTIVITY_TYPES=[
-    'activity1',
-    'activity2',
+    'Pri športe',
+    'Keď relaxujem',
+    'Pri dobrom pití a jedle',
+    'Keď sa zabávam s priateľmi',
+    'Pri tvorivej činnosti',
+    'Keď poznávam a učím sa nové veci',
 ]
 
+ACTIVITY_SPORTS=[
+    'Klasických kolektívnych športových disciplín ako futbal, volejbal…',
+    'Adrenalínových športov',
+    'Netradičných a zábavných športových disciplín',
+    'Športov zameraných na správne držanie tela a dýchanie',
+    'Aeróbne cvičenia',
+]
+
+ACTIVITIES=[
+    'Gravity jóga',
+    'Hoopnotica (cvičenie s obručou)',
+    'Jumping (cvičenie na trampolíne)',
+    'Lezecká sieť',
+    'TRX (kondičný tréning)',
+    'Šerm',
+    'Nafukovacie športové aktivity (Varifutbal, bungee running..)',
+    'Jóga smiechu',
+    'Tvárová gymnastika',
+    'Mozgostreľba (aktivita zameraná na aktivitu mozgu)',
+    'Veštiareň',
+    'Workshopy a novinky k téme zdravá strava',
+    'Workshopy a prednášky zamerané na duševné zdravie',
+]
 
 MAIL_FROM = 'union@branda.sk'
+
 MAIL_SUBJECT = u'Noc filmových hviezd UNION'
 
 MAIL_TEXT = u"""

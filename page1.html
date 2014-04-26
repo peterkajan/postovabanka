@@ -39,7 +39,7 @@
 							<h1>2 stranka </h1>
 							<h2>Union Happy second page</h2>
 							<div class="activity">
-			        	{% for at_lbl in form.activity_labels %}
+			        	{% for at_lbl in form.activity_type_labels %}
 		        			<a id="activity-type-btn-{{forloop.counter|add:-1}}"><div class="activity-button">{{at_lbl}}</div></a>
 			  				{% endfor %}
 			  				
@@ -50,6 +50,32 @@
 								</div>
 								
 								
+			        </div>
+						</div>
+					</section>
+					<section class="page2-1">
+						<div class="page_container">
+							<h1>2 stranka </h1>
+							<h2>Union Happy second page</h2>
+							<div class="activity">
+								{% for at in form.activity_sports %}
+			  					<div>
+			  						{{at}}{{at.label}}
+			  					</div>
+								{% endfor %}
+			        </div>
+						</div>
+					</section>
+					<section class="page2-2">
+						<div class="page_container">
+							<h1>2 stranka </h1>
+							<h2>Union Happy second page</h2>
+							<div class="activity">
+								{% for at in form.activities %}
+			  					<div>
+			  						{{at}}{{at.label}}
+			  					</div>
+								{% endfor %}
 			        </div>
 						</div>
 					</section>

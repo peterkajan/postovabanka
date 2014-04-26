@@ -1,5 +1,5 @@
 /* custom javascript */
-var ACTIVITY_TYPES_CNT = 2;
+var ACTIVITY_TYPES_CNT = 6;
 
 function toggleActivityType(buttonEl, number) {
 	check = $('#id_activity_type_' + number);

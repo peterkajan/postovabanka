@@ -140,6 +140,14 @@ h2 {
 	background-image: url('../images/background2.jpg');
 	
 }
+.main section.page2-1 {
+	background-image: url('../images/background2.jpg');
+	
+}
+.main section.page2-2 {
+	background-image: url('../images/background2.jpg');
+	
+}
 .main section.page3 {
 	background-image: url('../images/background5.jpg');
 	
@@ -178,6 +186,22 @@ h2 {
 	}
 	
 	#activity-type-btn-1 .activity-button {
+		background-image: url('../images/button.png');
+	}
+	
+	#activity-type-btn-2 .activity-button {
+		background-image: url('../images/button.png');
+	}
+	
+	#activity-type-btn-3 .activity-button {
+		background-image: url('../images/button.png');
+	}
+	
+	#activity-type-btn-4 .activity-button {
+		background-image: url('../images/button.png');
+	}
+	
+	#activity-type-btn-5 .activity-button {
 		background-image: url('../images/button.png');
 	}
 
