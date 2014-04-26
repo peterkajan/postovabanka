@@ -2,15 +2,23 @@ from django.core.exceptions import ValidationError
 from django.forms import Form, RadioSelect
 from django.forms.fields import CharField, ChoiceField, FileField, BooleanField
 from django.forms.widgets import Textarea, ClearableFileInput
-from model import Record
+from model import Record, ActivityType, ActivitySport
+from model import update_counter, Activity
 from defines import ACTIVITY_TYPES, ACTIVITY_SPORTS, ACTIVITIES
 import re
 
 
+def belongs_to_group(name, group):
+    return re.match(group + r'_[0-9]+', name)
+
+def get_id_in_group(name, group):
+    match = re.match(group + r'_([0-9]+)', name)
+    if match:
+        return int(match.group(1))
+
 def get_checkbox_field_group(form, group):
     for name in form.fields:
-        print name
-        if re.match(group + r'_[0-9]+', name):
+        if belongs_to_group(name, group):
             yield(form[name])
             
 def init_checkbox_field_group(form, group_name, group_values):
@@ -18,6 +26,21 @@ def init_checkbox_field_group(form, group_name, group_values):
         field = BooleanField(required=False, label=value) 
         field.widget.label = value
         form.fields['{}_{}'.format(group_name, i)] = field 
+        
+def get_group_label(group_name, field_id):
+    if group_name=='activity_type':
+        return ACTIVITY_TYPES[field_id]
+    if group_name=='activity_sport':
+        return ACTIVITY_SPORTS[field_id]
+    if group_name=='activity':
+        return ACTIVITIES[field_id]
+
+def update_group(name, val, group, model_cls):
+    field_id = get_id_in_group(name, group)
+    if field_id is not None and val: 
+        update_counter(model_cls, field_id, get_group_label(group, field_id))
+    return field_id is not None
+
     
 class Page1Form(Form):
     #error_css_class = 'error'
@@ -61,6 +84,18 @@ class Page1Form(Form):
     
     def save(self):
         rec = Record()
-        rec.activity = self.cleaned_data['activity']
         rec.joke = self.cleaned_data['joke']
         rec.put()
+        
+        for name, val in self.cleaned_data.items():
+            if update_group(name, val, 'activity', Activity): 
+                continue
+            if update_group(name, val, 'activity_sport', ActivitySport): 
+                continue
+            if update_group(name, val, 'activity_type', ActivityType): 
+                continue
+                
+            
+
+        
+        
