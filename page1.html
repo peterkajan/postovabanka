@@ -12,19 +12,29 @@
     <div class="content">
       <form action="/" method="post">
 
+        <div class="introtext">
+        	<p>Len uvitaci text</p>
+        </div>
+        
+        <div class="activity">
+        	<a id="activity1"><div class="activity-button"></div></a>
+  				<a id="activity2"><div class="activity-button"></div></a>
+  				
+					{{ form.activity|safe }}
+        </div>
+        
+        <div class="joke">
+        	<!-- <textarea name="joke" rows="30" cols="100" placeholder="vtip"></textarea> -->
+        	{{ form.joke|safe }}
+        </div>
+        
+        <div class="photo">
+        	{{ form.photo|safe }}
+        </div>
+        
+        
         <!-- <div class="errorMsg">
           {{form.nonfield_errors}}
-        </div> -->
-        
-        {% autoescape off %} 
-        
-        {{ form.as_p|safe }}
-        {% endautoescape %}
-
-        <!-- <div>
-          <input maxlength="200" type="text" name="firstname" id="fname" {% if 'firstname' in errorIds %} class="error" {% endif%} value="{{form.fields.id_num.value}}"/>
-          <label for="fname">Identifikačné číslo</label>
-          <br>
         </div> -->
 
         <input type="submit" val="Pokračovať"/>

@@ -14,8 +14,7 @@ settings.USE_I18N = False
 
     
 URL_PAGE_1='/'
-URL_PAGE_2='/informacie'
-URL_PAGE_3='/potvrdenie'
+URL_PAGE_2='/potvrdenie'
 
 
 def render_template(response, template_file, template_values):
@@ -59,55 +58,15 @@ class Page2(BaseHandler):
             'errorIds': errorIds,
         }
         render_template(self.response, 'page2.html', template_values)
-        
-    def get(self):
-        self.displayPage()
-                         
-    def validateData(self):
-        errors = []
-        errorIds = []
-        
-        return errors, errorIds
-            
-            
-    def post(self):
-        errors, errorIds = self.validateData() 
-        if errors:
-            self.displayPage( self.request.params, errors, errorIds )
-            return
-
-        self.redirect(URL_PAGE_3)
-        
-        
-class Page3(BaseHandler):
-
-    def displayPage(self, params={}, errors=[], errorIds=[]):
-        template_values = {
-            'p': params,
-            'errors': errors,
-            'errorIds': errorIds,
-        }
-        render_template(self.response, 'page3.html', template_values)
   
     def get(self):
         self.displayPage()
-                         
-        
-def sendMail(guest):
-    userAddress = guest.email
-    senderAddress = MAIL_FROM
-    subject = MAIL_SUBJECT
-    
-    body = MAIL_TEXT
-    
-    mail.send_mail(senderAddress, userAddress, subject, body)
     
 
 application = webapp2.WSGIApplication([
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
-        (URL_PAGE_3, Page3),
-    ], config = sessionConfig, debug=True)
+    ], config = sessionConfig)
 
 def main():
     # Set the logging level in the main function
