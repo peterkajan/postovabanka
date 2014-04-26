@@ -24,6 +24,9 @@ body {
 
 }
 
+textarea{
+      background-color: rgba(0, 0, 0, 0.2);    
+}
 .content {
 	height: 100% !important;
 	height: 100%;
@@ -74,7 +77,6 @@ h2 {
 	margin-bottom: 10px;
 	text-align: left;
 	letter-spacing: -1px; 
-
 	font-style: italic;
 }
 
@@ -172,6 +174,7 @@ h2 {
 .activity-text {
     height: 140px;
     display: inline-block;
+    
 }
 
 .activity a {
@@ -180,6 +183,27 @@ h2 {
     margin: 10px;
 }
 
+
+.other-activity {
+    margin-top: 200px;
+    width: 500px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+}
+
+
+
+.joke {
+     color: #fff;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+}
 /*.main section > img {
 	position: absolute;
 	max-width: 100%;
@@ -215,11 +239,11 @@ h2 {
 	
 }
 .main section.page2-2 {
-	background-image: url('../images/background4.jpg');
+	background-image: url('../images/background7.jpg');
 	
 }
 .main section.page3 {
-	background-image: url('../images/background1.jpg');
+	background-image: url('../images/background8.jpg');
 	
 }
 .main section.page4 {
