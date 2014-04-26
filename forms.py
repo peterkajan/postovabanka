@@ -24,9 +24,10 @@ class Page1Form(Form):
         super(Page1Form, self).__init__(*args, **kwargs)
         self.activity_types = ACTIVITY_TYPES
             
-        for activity_type, i in zip(ACTIVITY_TYPES, range( len(ACTIVITY_TYPES))):
-            self.fields['activity_type_{}'.format(i)] = BooleanField(required=False, label=activity_type)
-            self.activity_types.append( self.fields['activity_type_{}'.format(i)] )
+        for activity_type, i in zip(ACTIVITY_TYPES, range( len(ACTIVITY_TYPES))): 
+            self.fields['activity_type_{}'.format(i)] = BooleanField(required=False)
+            
+            
     
     def save(self):
         rec = Record()

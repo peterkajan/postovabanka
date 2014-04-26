@@ -39,14 +39,12 @@
 							<h1>2 stranka </h1>
 							<h2>Union Happy second page</h2>
 							<div class="activity">
-			        	<a id="activity1"><div class="activity-button"></div></a>
-			  				<a id="activity2"><div class="activity-button"></div></a>
+			        	<a id="activity-type-btn-0"><div class="activity-button"></div></a>
+			  				<a id="activity-type-btn-1"><div class="activity-button"></div></a>
 			  				
 								<div class="hidden">
-								{% for activity_type in form.activity_types %}
-									{{ form.activity_type_1|safe }}
-									
-								{% endfor %}
+								{{ form.activity_type_0|safe }}
+								{{ form.activity_type_1|safe }}
 								</div>
 								
 								

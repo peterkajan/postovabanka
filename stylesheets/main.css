@@ -3,7 +3,7 @@
 }
 
 .hidden {
-	/*display: none;*/
+	display: none;
 }
 
 html {
@@ -161,25 +161,25 @@ h2 {
 	opacity: 0.5;
 }
 
-.activity-button:hover
-{
-	/*background-image: url('../images/buttonH.png');*/
-	opacity: 0.8;
-}
-
-.activity-button.checked
-{
-	/*background-image: url('../images/buttonH.png');*/
-	opacity: 1;
-}
-
-#activity1 .activity-button {
-	background-image: url('../images/button.png');
-}
-
-#activity2 .activity-button {
-	background-image: url('../images/button.png');
-}
+	.activity-button:hover
+	{
+		/*background-image: url('../images/buttonH.png');*/
+		opacity: 0.8;
+	}
+	
+	.checked > .activity-button
+	{
+		/*background-image: url('../images/buttonH.png');*/
+		opacity: 1;
+	}
+	
+	#activity-type-btn-0 .activity-button {
+		background-image: url('../images/button.png');
+	}
+	
+	#activity-type-btn-1 .activity-button {
+		background-image: url('../images/button.png');
+	}
 
 
 /*.main section.page2 h1 {
