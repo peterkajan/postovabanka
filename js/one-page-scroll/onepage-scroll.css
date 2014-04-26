@@ -44,8 +44,8 @@ body, .onepage-wrapper, html {
 }
 .onepage-pagination li a{
   padding: 25px;
-  width: 4px;
-  height: 4px;
+  width: 10px;
+  height: 10px;
   display: block;
   
 }
@@ -54,17 +54,17 @@ body, .onepage-wrapper, html {
   position: absolute;
   width: 6px;
   height: 6px;
-  background: green;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
+  background: white;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
 }
 
 .onepage-pagination li a.active:before{
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   background: none;
-  border: 5px solid green;
+  border: 1px solid white;
   margin-top: -4px;
   left: 16px;
 }
