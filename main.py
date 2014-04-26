@@ -7,19 +7,20 @@ from utils import BaseHandler, sessionConfig
 import logging
 import os
 import webapp2
+from django.template.loader import render_to_string
 
 
 settings.configure()
 settings.USE_I18N = False
-
+settings.TEMPLATE_DIRS = ('.')
+settings.TEMPLATE_DEBUG = True
     
 URL_PAGE_1='/'
 URL_PAGE_2='/potvrdenie'
 
 
 def render_template(response, template_file, template_values):
-    path = os.path.join(os.path.dirname(__file__), template_file)
-    response.out.write(template.render(path, template_values))
+    response.out.write( render_to_string(template_file, template_values))
     
 class Page1(BaseHandler):
 
@@ -67,7 +68,7 @@ class Page2(BaseHandler):
 application = webapp2.WSGIApplication([
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
-    ], config = sessionConfig)
+    ], config = sessionConfig, debug=True)
 
 def main():
     # Set the logging level in the main function

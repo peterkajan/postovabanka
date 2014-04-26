@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+ACTIVITY_TYPES=[
+    'activity1',
+    'activity2',
+]
+
+
 MAIL_FROM = 'union@branda.sk'
 MAIL_SUBJECT = u'Noc filmových hviezd UNION'
 
