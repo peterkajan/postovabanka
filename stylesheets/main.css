@@ -17,7 +17,7 @@ body {
 	margin: 0;
 	height: 100%;
 	-webkit-font-smoothing: antialiased;
-    font-family: arial, sans-serif;
+    font-family: helvetica, arial, sans-serif;
 	background-position: top center;
 	background-color: black;
 	background-repeat: no-repeat;
@@ -141,23 +141,23 @@ h2 {
 	
 }
 .main section.page2-1 {
-	background-image: url('../images/background2.jpg');
-	
-}
-.main section.page2-2 {
-	background-image: url('../images/background2.jpg');
-	
-}
-.main section.page3 {
 	background-image: url('../images/background3.jpg');
 	
 }
-.main section.page4 {
+.main section.page2-2 {
 	background-image: url('../images/background4.jpg');
+	
+}
+.main section.page3 {
+	background-image: url('../images/background5.jpg');
+	
+}
+.main section.page4 {
+	background-image: url('../images/background6.jpg');
 
 }
 .main section.page5 {
-	background-image: url('../images/background5.jpg');
+	background-image: url('../images/background7.jpg');
 }
 
 .activity-button {
