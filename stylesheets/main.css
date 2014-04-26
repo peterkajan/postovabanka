@@ -17,7 +17,7 @@ body {
 	margin: 0;
 	height: 100%;
 	-webkit-font-smoothing: antialiased;
-
+    font-family: arial, sans-serif;
 	background-position: top center;
 	background-color: black;
 	background-repeat: no-repeat;
@@ -149,7 +149,7 @@ h2 {
 	
 }
 .main section.page3 {
-	background-image: url('../images/background5.jpg');
+	background-image: url('../images/background3.jpg');
 	
 }
 .main section.page4 {
