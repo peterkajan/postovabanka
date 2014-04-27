@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.core.exceptions import ValidationError
 from django.forms import Form, RadioSelect
 from django.forms.fields import CharField, ChoiceField, FileField, BooleanField
@@ -45,7 +46,7 @@ def update_group(name, val, group, model_cls):
 class Page1Form(Form):
     #error_css_class = 'error'
     #activity = ChoiceField(choices=ACTIVITY_CHOICES, widget=RadioSelect(), required=False)
-    my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50}), required=False)
+    my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50, 'placeholder': "Vpíšte sem Vašu aktivitu"}), required=False)
     joke = CharField(widget=Textarea, required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
     
