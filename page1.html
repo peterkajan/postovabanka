@@ -92,6 +92,8 @@
 			  						{{at}}{{at.label}}
 			  					</div>
 								{% endfor %}
+								<label for="{{ form.my_activity..auto_id }}">Iné (vlastné nápady)</label><br/> 
+								{{ form.my_activity }}
 			        </div>
 						</div>
 					</section>
@@ -106,7 +108,7 @@
 							
 							<div class="joke">
 			        	<!-- <textarea name="joke" rows="30" cols="100" placeholder="vtip"></textarea>  -->
-			        	{{ form.joke|safe }}
+			        	{{ form.joke }}
 	        		</div>
 						</div>
 					</section>

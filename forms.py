@@ -45,6 +45,7 @@ def update_group(name, val, group, model_cls):
 class Page1Form(Form):
     #error_css_class = 'error'
     #activity = ChoiceField(choices=ACTIVITY_CHOICES, widget=RadioSelect(), required=False)
+    my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50}), required=False)
     joke = CharField(widget=Textarea, required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
     
@@ -84,6 +85,7 @@ class Page1Form(Form):
     
     def save(self):
         rec = Record()
+        rec.my_activity = self.cleaned_data['my_activity']
         rec.joke = self.cleaned_data['joke']
         rec.put()
         
