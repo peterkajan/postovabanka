@@ -46,7 +46,7 @@ class Page1Form(Form):
     #error_css_class = 'error'
     #activity = ChoiceField(choices=ACTIVITY_CHOICES, widget=RadioSelect(), required=False)
     my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50}), required=False)
-    joke = CharField(widget=Textarea(attrs={'rows': 30, 'columns': 100}), required=False)
+    joke = CharField(widget=Textarea, required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
     
 #     def clean_id_num(self):
