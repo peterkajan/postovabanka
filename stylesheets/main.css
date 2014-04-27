@@ -10,6 +10,7 @@ html {
 	height: 100%;
 }
 
+
 body {
 	padding: 0;
 	text-align: center;
@@ -25,7 +26,32 @@ body {
 
 textarea {
 	background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    padding: 10px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border: none;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    letter-spacing: -1px;
+    font-style: italic;
+    font-size: 16px;
 }
+
+textarea:focus {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    padding: 10px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    text-align:left;
+}
+
+
 .content {
 	height: 100% !important;
 	height: 100%;
@@ -191,11 +217,15 @@ h2 {
 }
 
 .joke {
-	color: #fff;
-	background-color: rgba(0,0,0,0.2);
-	border-radius: 25px;
-	-webkit-border-radius: 25px;
-	-moz-border-radius: 25px;
+    margin-top: 100px;
+    width: 400px;
+    /*color: #fff;
+    background-color: rgba(0,0,0,0);
+    padding: 10px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;*/
+    text-align:left;
 }
 /*.main section > img {
  position: absolute;
@@ -321,8 +351,8 @@ h2 {
 
 
 .next-page-btn-container {
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50px;
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
@@ -330,20 +360,22 @@ h2 {
 	position: absolute;
 	bottom: 50px;
 	left: 50%;
+	padding: 7px;
 	background-color: rgba(0,0,0,0.2);
 	margin-left: -50px;
 	z-index: 100;
 }
 
 .next-page-btn {
-	margin-top: 30px;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
-	border-top: 50px solid #e3e0e1;
+	margin-top: 20px;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 24px solid #fff;
 	display: block;
 	z-index: 100;
+	opacity: 0.6;
 }
 
 .next-page-btn:hover {
-	opacity: 0.9;
+	opacity: 0.8;
 }
