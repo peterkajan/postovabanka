@@ -12,125 +12,135 @@
 				$(".main").onepage_scroll({
 					sectionContainer : "section",
 					loop : false,
-					responsiveFallback : 600
+					responsiveFallback : 600,
+					easing : "ease"
 				});
+				$(".next-page-btn").click(function() {
+					$(".main").moveDown();
+				});
+
 			});
 
 		</script>
 
 	</head>
 
-
 	<body>
-		
+
 		<div class="content">
 			<form class="content" action="/" method="post">
 				<div class="main">
-						<section class="page1">
-                            <div class="headingdiv">
-                             <h1>UNION FESTIVAL ZDRAVIA NA VAŠE ŽELANIE</h1>
-                             <h2>
-                                 Stačí si len vybrať to, čo by ste chceli vidieť, 
-                                 počuť, zažiť a cítiť sa pri tom happy :). 
-                                 Vyplnte krátky formulár, zúčastnite sa na tvorbe 
-                                 programu festivalu a vyhrajte zdravý balíček na mieru!
-                             </h2>
-                            </div>
-						    
-						<div class="page_container">
+					<section class="page1">
+						<div class="headingdiv">
+							<h1>UNION FESTIVAL ZDRAVIA NA VAŠE ŽELANIE</h1>
+							<h2> Stačí si len vybrať to, čo by ste chceli vidieť,
+							počuť, zažiť a cítiť sa pri tom happy :).
+							Vyplnte krátky formulár, zúčastnite sa na tvorbe
+							programu festivalu a vyhrajte zdravý balíček na mieru! </h2>
 						</div>
+
+						<div class="page_container"></div>
+						<div class="next-page-btn"></div>
+
 					</section>
-					
+
 					<section class="page2">
-				      <div class="headingdiv">
-                         <h1>NAJVIAC SA CÍTIM HAPPY PRI:</h1>
-                        </div>
+						<div class="headingdiv">
+							<h1>NAJVIAC SA CÍTIM HAPPY PRI:</h1>
+						</div>
 						<div class="page_container">
 							<div class="activity">
-			        	{% for at_lbl in form.activity_type_labels %}
-		        			<a id="activity-type-btn-{{forloop.counter|add:-1}}">
-		        			    <div class="activity-button">
-		        			        <div class="activity-text">
-		        			        {{at_lbl}}
-		        			        </div>
-		        			        </div>
-		        			</a>
-			  				{% endfor %}
-			  				
-								<div class="hidden">
-								{% for at in form.activity_types %}
-			  					{{at}}
+								{% for at_lbl in form.activity_type_labels %}
+								<a id="activity-type-btn-{{forloop.counter|add:-1}}">
+								<div class="activity-button">
+									<div class="activity-text">
+										{{at_lbl}}
+									</div>
+								</div> </a>
 								{% endfor %}
+
+								<div class="hidden">
+									{% for at in form.activity_types %}
+									{{at}}
+									{% endfor %}
 								</div>
-								
-								
-			        </div>
+
+							</div>
 						</div>
+						<div class="next-page-btn"></div>
 					</section>
+
 					<section class="page2-1">
-					      <div class="headingdiv">
-                         <h1>ZO ŠPORTOVÝCH AKTIVÍT BY SOM SA NAJRADŠEJ ZÚČASTNIL:</h1>
-                        </div>
+						<div class="headingdiv">
+							<h1>ZO ŠPORTOVÝCH AKTIVÍT BY SOM SA NAJRADŠEJ ZÚČASTNIL:</h1>
+						</div>
 						<div class="page_container">
 							<div class="other-activity">
 								{% for at in form.activity_sports %}
-			  					<div>
-			  						{{at}}{{at.label}}
-			  					</div>
+								<div>
+									{{at}}{{at.label}}
+								</div>
 								{% endfor %}
-			        </div>
+							</div>
+							<div class="next-page-btn"></div>
 						</div>
+						<div class="next-page-btn"></div>
 					</section>
+
 					<section class="page2-2">
-					      <div class="headingdiv">
-                         <h1>VYBER SI NIEKOĽKO AKTIVÍT, KOTRÉ ŤA NA PRVÝ POHĽAD ZAUJALI A CHCEL/A BY SI ICH VYSKÚŠAŤ</h1>
-                        </div>
+						<div class="headingdiv">
+							<h1>VYBER SI NIEKOĽKO AKTIVÍT, KOTRÉ ŤA NA PRVÝ POHĽAD ZAUJALI A CHCEL/A BY SI ICH VYSKÚŠAŤ</h1>
+						</div>
 						<div class="page_container">
 							<div class="other-activity">
 								{% for at in form.activities %}
-			  					<div>
-			  						{{at}}{{at.label}}
-			  					</div>
+								<div>
+									{{at}}{{at.label}}
+								</div>
 								{% endfor %}
-								<label for="{{ form.my_activity..auto_id }}">Iné (vlastné nápady)</label><br/> 
+								<label for="{{ form.my_activity..auto_id }}">Iné (vlastné nápady)</label>
+								<br/>
 								{{ form.my_activity }}
-			        </div>
+							</div>
+
 						</div>
+						<div class="next-page-btn"></div>
 					</section>
+
 					<section class="page3">
-					      <div class="headingdiv">
-                             <h1>SMIECH JE ZDRAVÝ. ZDRAVIE PRINÁŠA ŠTASTIE</h1>
-                             <h2>
-                                Pošli svoj obľúbený vtip, ktorý dostane šancu rozosmiať a roztlieskať Tvojich kolegov. Ak ich na evente rozosmeje najviac, prinesie Ti šťastie. Vyhráš peknú cenu.
-                             </h2>
-                            </div>
-						<div class="page_container">
-							
-							<div class="joke">
-			        	<!-- <textarea name="joke" rows="30" cols="100" placeholder="vtip"></textarea>  -->
-			        	{{ form.joke }}
-	        		</div>
+
+						<div class="headingdiv">
+							<h1>SMIECH JE ZDRAVÝ. ZDRAVIE PRINÁŠA ŠTASTIE</h1>
+							<h2> Pošli svoj obľúbený vtip, ktorý dostane šancu rozosmiať a roztlieskať Tvojich kolegov. Ak ich na evente rozosmeje najviac, prinesie Ti šťastie. Vyhráš peknú cenu. </h2>
 						</div>
+						<div class="page_container">
+
+							<div class="joke">
+								<!-- <textarea name="joke" rows="30" cols="100" placeholder="vtip"></textarea>  -->
+								{{ form.joke }}
+							</div>
+						</div>
+						<div class="next-page-btn"></div>
 					</section>
 					<section class="page4">
-                          <div class="headingdiv">
-                             <h1>ČO PRE TEBA ZNAMENÁ BYŤ ZDRAVÝ, ŠTASTNÝ, SVETOVÝ?</h1>
-                             <h2>
-                                Pošli vlastnú  “happy fotografiu”. Tá najlepšia bude odmenené balíčkom zdravia pre Teba alebo celý tím! :)
-                             </h2>
-                            </div>
-					    
+						<div class="headingdiv">
+							<h1>ČO PRE TEBA ZNAMENÁ BYŤ ZDRAVÝ, ŠTASTNÝ, SVETOVÝ?</h1>
+							<h2> Pošli vlastnú  “happy fotografiu”. Tá najlepšia bude odmenené balíčkom zdravia pre Teba alebo celý tím! :) </h2>
+						</div>
+
 						<div class="page_container">
 							<div class="photo">
-			        	{{ form.photo|safe }}
-			        </div>
-			        <div><input type="submit" val="Pokračovať"/></div>
+								{{ form.photo|safe }}
+							</div>
+							<div>
+								<input type="submit" val="Pokračovať"/>
+							</div>
 						</div>
 					</section>
+
 				</div>
 			</form>
 		</div>
-		
 
 	</body>
 </html>
