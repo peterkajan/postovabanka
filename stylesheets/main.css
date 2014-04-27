@@ -331,6 +331,7 @@ h2 {
 	left: 50%;
 	background-color: rgba(0,0,0,0.2);
 	margin-left: -50px;
+	z-index: 100;
 }
 
 .next-page-btn {
@@ -339,6 +340,7 @@ h2 {
 	border-right: 50px solid transparent;
 	border-top: 50px solid #e3e0e1;
 	display: block;
+	z-index: 100;
 }
 
 .next-page-btn:hover {
