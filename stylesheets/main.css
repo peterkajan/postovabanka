@@ -254,132 +254,70 @@ h2 {
 	-moz-border-radius: 25px;
 }
 
-.activity-button:hover {
-	/*background-image: url('../images/buttonH.png');*/
-	opacity: 0.9;
-}
-
-/*.checked > .activity-button
- {
-
-		opacity: 1;
-	}*/	
-  
-	
-	
-	
-		#activity-type-btn-0 .activity-button {
-			background-image: url('../images/i3u.png');
-		}
-    	
-         
-        #activity-type-btn-0.checked > .activity-button
-        {
-            background-image: url('../images/i3c.png');
-        }
-	
-			   
-		#activity-type-btn-1 .activity-button {
-			background-image: url('../images/i1u.png');
-		}
-        
-        #activity-type-btn-1.checked > .activity-button
-        {
-           background-image: url('../images/i1c.png'); 
-        }
-    	
-		#activity-type-btn-2 .activity-button {
-			background-image: url('../images/i2u.png');
-		}
-          
-        #activity-type-btn-2.checked > .activity-button
-        {
-            background-image: url('../images/i2u.png');
-        }
-	
+	.activity-button:hover {
 		
-		#activity-type-btn-3 .activity-button {
-			background-image: url('../images/i6u.png');
-		}
+		opacity: 0.9;
+	}	
+	
+	#activity-type-btn-0 .activity-button {
+		background-image: url('../images/i3u.png');
+	}
+	
+     
+    #activity-type-btn-0.checked > .activity-button
+    {
+        background-image: url('../images/i3c.png');
+    }
+
+		   
+	#activity-type-btn-1 .activity-button {
+		background-image: url('../images/i1u.png');
+	}
     
-         
-        #activity-type-btn-3.checked > .activity-button
-        {
-            background-image: url('../images/i6c.png');
-        }
-	  
-		#activity-type-btn-4 .activity-button {
-			background-image: url('../images/i5u.png');
-		}
-          
-        #activity-type-btn-4.checked > .activity-button
-        {
-            background-image: url('../images/i5c.png');
-        }
-    	
-	   #activity-type-btn-5 .activity-button {
-	        background-image: url('../images/i4u.png');
-	    }
-	    
-          
-         #activity-type-btn-5.checked > .activity-button
-        {
-            background-image: url('../images/i4c.png');
-        }
+    #activity-type-btn-1.checked > .activity-button
+    {
+       background-image: url('../images/i1c.png'); 
+    }
+	
+	#activity-type-btn-2 .activity-button {
+		background-image: url('../images/i2u.png');
+	}
+      
+    #activity-type-btn-2.checked > .activity-button
+    {
+        background-image: url('../images/i2u.png');
+    }
 
-#activity-type-btn-0 .activity-button {
-	background-image: url('../images/i1u.png');
-}
+	
+	#activity-type-btn-3 .activity-button {
+		background-image: url('../images/i6u.png');
+	}
 
-#activity-type-btn-0.checked > .activity-button {
-	/*background-image: url('../images/buttonH.png');*/
-	background-image: url('../images/i1c.png');
-}
+     
+    #activity-type-btn-3.checked > .activity-button
+    {
+        background-image: url('../images/i6c.png');
+    }
+  
+	#activity-type-btn-4 .activity-button {
+		background-image: url('../images/i5u.png');
+	}
+      
+    #activity-type-btn-4.checked > .activity-button
+    {
+        background-image: url('../images/i5c.png');
+    }
+	
+    #activity-type-btn-5 .activity-button {
+        background-image: url('../images/i4u.png');
+    }
+    
+      
+    #activity-type-btn-5.checked > .activity-button
+    {
+        background-image: url('../images/i4c.png');
+    }
 
-#activity-type-btn-1 .activity-button {
-	background-image: url('../images/i2u.png');
-}
-
-#activity-type-btn-1.checked > .activity-button {
-	/*background-image: url('../images/buttonH.png');*/
-	background-image: url('../images/i2c.png');
-}
-
-#activity-type-btn-2 .activity-button {
-	background-image: url('../images/i3u.png');
-}
-
-#activity-type-btn-2.checked > .activity-button {
-	/*background-image: url('../images/buttonH.png');*/
-	background-image: url('../images/i3c.png');
-}
-
-#activity-type-btn-3 .activity-button {
-	background-image: url('../images/i4u.png');
-}
-
-#activity-type-btn-3.checked > .activity-button {
-	/*background-image: url('../images/buttonH.png');*/
-	background-image: url('../images/i4c.png');
-}
-
-#activity-type-btn-4 .activity-button {
-	background-image: url('../images/i5u.png');
-}
-
-#activity-type-btn-4.checked > .activity-button {
-	/*background-image: url('../images/buttonH.png');*/
-	background-image: url('../images/i5c.png');
-}
-
-#activity-type-btn-5 .activity-button {
-	background-image: url('../images/i6u.png');
-}
-
-#activity-type-btn-5.checked > .activity-button {
-	/*background-image: url('../images/buttonH.png');*/
-	background-image: url('../images/i6c.png');
-}
 
 .next-page-btn-container {
 	width: 100px;
