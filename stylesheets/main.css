@@ -62,6 +62,7 @@ textarea {
     color: #fff;
     padding: 10px;
     text-align: left;
+   	border: none;
 }
 
 textarea:focus {
@@ -244,6 +245,9 @@ h2 {
 
 .my-activity textarea {
 	width: 90%;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
 }
 
 .my-activity {
@@ -267,6 +271,8 @@ h2 {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;*/
     text-align:left;
+    position: absolute;
+    margin-top: 240px;
 
 	/*color: #fff;
 	background-color: rgba(0,0,0,0.2);
