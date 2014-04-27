@@ -46,7 +46,7 @@ class Page1Form(Form):
     #error_css_class = 'error'
     #activity = ChoiceField(choices=ACTIVITY_CHOICES, widget=RadioSelect(), required=False)
     my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50}), required=False)
-    joke = CharField(widget=Textarea, required=False)
+    joke = CharField(widget=Textarea(attrs={'rows': 30, 'columns': 100}), required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
     
 #     def clean_id_num(self):
@@ -81,6 +81,14 @@ class Page1Form(Form):
     
     def activities(self):
         return get_checkbox_field_group(self, 'activity')
+    
+    def activities_part_1(self):
+        acts = list(self.activities())
+        return acts[:len(acts)/2+2]
+    
+    def activities_part_2(self):
+        acts = list(self.activities())
+        return acts[len(acts)/2+3:]
            
     
     def save(self):

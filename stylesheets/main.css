@@ -205,18 +205,38 @@ h2 {
 }
 
 .other-activity {
-	margin-top: 200px;
-	width: 500px;
+	margin-top: 230px;
 	color: #fff;
 	background-color: rgba(0,0,0,0.2);
-	padding: 10px;
+	padding: 20px;
 	border-radius: 25px;
 	-webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
-	text-align:left;
+	text-align: left;
+	position: absolute
 }
 
+.page2-2 .other-activity {
+	background-color: rgba(0,0,0,0.4);
+}
+
+.other-activity-column {
+	width: 400px;
+	float: left;
+}
+
+.my-activity {
+	padding-top: 10px;
+}
+/*.other-activity > div {
+	width: 300px;
+	float left;	
+	display: inline-block;
+}*/
+
+
 .joke {
+
     margin-top: 100px;
     width: 400px;
     /*color: #fff;
@@ -226,7 +246,23 @@ h2 {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;*/
     text-align:left;
+
+	/*color: #fff;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	width: 70%;
+	margin: 300px auto 0;
+	padding: 20px;
+	position:absolute;*/
 }
+
+	.joke textarea {
+		height: 150px;
+		overflow: auto;
+		width: 90%;
+	}
 /*.main section > img {
  position: absolute;
  max-width: 100%;
@@ -379,3 +415,4 @@ h2 {
 .next-page-btn:hover {
 	opacity: 0.8;
 }
+
