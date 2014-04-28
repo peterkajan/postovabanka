@@ -42,6 +42,7 @@ body {
 	background-position: top center;
 	background-color: black;
 	background-repeat: no-repeat;
+	min-width: 1000px;
 }
 
 textarea {
