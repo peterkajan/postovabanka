@@ -23,27 +23,14 @@ html {
     text-transform: uppercase;
     font-weight: bold;
     font-style: italic;
+    margin-bottom: 50px;
 }
 
 #submit:hover{
     background-color: rgba(0,0,0,0.6);
 }
 
- input[type="file"] {
-     background-color: rgba(0,0,0,0.4);
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius:20px;
-    color: #fff;
-    font-size: 20px;
-    border:none;
-    width: 200px;
-    height: 70px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-style: italic;
-}
-
+ 
 body {
 	padding: 0;
 	text-align: center;
