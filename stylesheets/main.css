@@ -10,6 +10,19 @@ html {
 	height: 100%;
 }
 
+#preloadedImages
+{
+    width: 0px;
+    height: 0px;
+    display: inline;
+    background-image: url('../images/i1c.png');
+    background-image: url('../images/i2c.png');
+    background-image: url('../images/i3c.png');
+    background-image: url('../images/i4c.png');
+    background-image: url('../images/i5c.png');
+    background-image: url('../images/i6c.png');
+}
+
 .last-page-btn {
     background-color: rgba(0,0,0,0.4);
     -moz-border-radius: 20px;
