@@ -5,9 +5,11 @@ from django.forms.fields import CharField, ChoiceField, FileField, BooleanField
 from django.forms.widgets import Textarea, ClearableFileInput, TextInput
 from model import Record, ActivityType, ActivitySport
 from model import update_counter, Activity
-from defines import ACTIVITY_TYPES, ACTIVITY_SPORTS, ACTIVITIES
+from defines import ACTIVITY_TYPES, ACTIVITY_SPORTS, ACTIVITIES, DOMAIN,\
+    URL_PHOTO
 import re
 from google.appengine.ext import ndb, db
+import logging
 
 
 def belongs_to_group(name, group):
@@ -87,7 +89,7 @@ class Page1Form(Form):
     
     def activities_part_1(self):
         acts = list(self.activities())
-        return acts[:len(acts)/2+2]
+        return acts[:len(acts)/2+3]
     
     def activities_part_2(self):
         acts = list(self.activities())
@@ -102,6 +104,9 @@ class Page1Form(Form):
             
         rec.name = self.cleaned_data['name']
         rec.put()
+        logging.info('Key: %s', rec.key.urlsafe())
+        rec.photo_link = DOMAIN + URL_PHOTO + '?key=' + rec.key.urlsafe()
+        rec.put() 
         
         for name, val in self.cleaned_data.items():
             if update_group(name, val, 'activity', Activity): 

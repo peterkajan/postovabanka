@@ -15,10 +15,6 @@ settings.USE_I18N = False
 settings.TEMPLATE_DIRS = ('.')
 settings.TEMPLATE_DEBUG = True
     
-URL_PAGE_1='/'
-URL_PAGE_2='/potvrdenie'
-
-
 def render_template(response, template_file, template_values):
     response.out.write( render_to_string(template_file, template_values))
 
@@ -71,7 +67,7 @@ class PhotoPage(BaseHandler):
 application = webapp2.WSGIApplication([
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
-        ('/photo', PhotoPage),
+        (URL_PHOTO, PhotoPage),
     ], config = sessionConfig, debug=True)
 
 def main():
