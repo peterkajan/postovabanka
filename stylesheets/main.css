@@ -65,6 +65,17 @@ textarea:focus {
 	overflow: hidden;
 }
 
+.confirmation-content {
+	height: 100%;
+	width: 100%;
+	background: url('../images/background5.jpg');
+	background-size: cover;
+}
+
+	.confirmation-content .headingdiv {
+		width: 80%;
+	}
+
 a {
 	text-decoration: none;
 }
