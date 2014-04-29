@@ -15,5 +15,9 @@ $( function(){
 	$("form").submit(function(event) {
 	    $('.progress').show();
 	});
+	
+	$('#upload-btn').click(function() {
+	    $('input[type=file]').trigger('click');
+	});
 
 });
