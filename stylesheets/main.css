@@ -486,3 +486,38 @@ h2 {
 	left: 30%;
 	width: 300px;
 }
+
+.leftUnionLogo{
+    position: absolute;
+    bottom: 25px;
+    left: 3%; 
+    border: 0;
+    background-image: url('../images/unionPoistovna.jpg');
+    width: 180px;
+    height: 60px;
+    z-index: 100;
+    background-color: white;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    background-position: center;
+}
+.rightUnionLogo{
+    position: absolute;
+    bottom: 25px;
+    right: 3%; 
+    border: 0;
+    background-image: url('../images/unionZdravotna.jpg');
+    width: 180px;
+    height: 60px;
+    z-index: 100;
+    background-color: white;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    background-position: center;
+}
+
+
