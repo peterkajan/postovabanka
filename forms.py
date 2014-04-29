@@ -49,12 +49,20 @@ def update_group(name, val, group, model_cls):
 class Page1Form(Form):
     #error_css_class = 'error'
     #activity = ChoiceField(choices=ACTIVITY_CHOICES, widget=RadioSelect(), required=False)
-    my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50, 'placeholder': "Vpíšte sem Vašu aktivitu"}), required=False)
-    joke = CharField(widget=Textarea, required=False)
+    my_activity = CharField(widget=Textarea(attrs={
+                    'rows': 3, 
+                    'columns': 300, 
+                    'placeholder': "Vpíšte sem Vašu aktivitu",
+                    'maxlength': '200'}), required=False)
+    joke = CharField(widget=Textarea(attrs={
+                    'rows':"10",
+                    'placeholder':"Vpíšte sem Váš vtip",
+                    'maxlength': '1000'}), required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
     name = CharField(widget=TextInput(attrs={
                     'placeholder': 'Vaše meno...',
-                    'class': 'last-page-field'}), required=False)
+                    'class': 'last-page-field',
+                    'maxlength': '50'}), required=False)
     
 #     def clean_id_num(self):
 #         if self.cleaned_data['id_num'] == 'error':
