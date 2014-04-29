@@ -52,7 +52,9 @@ class Page1Form(Form):
     my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50, 'placeholder': "Vpíšte sem Vašu aktivitu"}), required=False)
     joke = CharField(widget=Textarea, required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
-    name = CharField(widget=TextInput(attrs={'placeholder': 'Vaše meno...'}), required=False)
+    name = CharField(widget=TextInput(attrs={
+                    'placeholder': 'Vaše meno...',
+                    'class': 'last-page-field'}), required=False)
     
 #     def clean_id_num(self):
 #         if self.cleaned_data['id_num'] == 'error':
