@@ -93,16 +93,16 @@ textarea:focus, input[type=text]:focus {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #ddd;
+    color:    #eee;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #ddd;
+    color:    #eee;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #ddd;
+    color:    #eee;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #ddd;
+    color:    #eee;
 }
 
 .content {
@@ -301,6 +301,7 @@ h2 {
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
+	font-size: 12px;
 }
 
 .my-activity {
