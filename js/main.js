@@ -11,4 +11,9 @@ $( function(){
 	for (var i = 0; i < ACTIVITY_TYPES_CNT; i++) {
 		$('#activity-type-btn-' + i).click($.proxy(toggleActivityType, null, this, i));
 	}
+	
+	$("form").submit(function(event) {
+	    $('.progress').show();
+	});
+
 });
