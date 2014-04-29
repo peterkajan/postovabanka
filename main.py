@@ -5,10 +5,8 @@ from google.appengine.api import mail
 from google.appengine.ext.webapp import template
 from utils import BaseHandler, sessionConfig
 import logging
-import os
 import webapp2
 from django.template.loader import render_to_string
-import urllib
 from google.appengine.ext import ndb
 
 
@@ -23,29 +21,6 @@ URL_PAGE_2='/potvrdenie'
 
 def render_template(response, template_file, template_values):
     response.out.write( render_to_string(template_file, template_values))
-    
-# from google.appengine.ext.webapp import blobstore_handlers
-# from google.appengine.ext import blobstore, ndb
-
-
-# class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
-#     def post(self):
-#         logging.info(self.request.POST)
-#         
-#         upload_files = self.get_uploads('photo')  # 'file' is file upload field in the form
-#         logging.info(self.request.POST)
-#         blob_info = upload_files[0]
-#         #self.redirect('/serve/%s' % blob_info.key())
-# #         form = Page1Form(data = self.request.params) 
-# #         form.save()
-# #         self.redirect(URL_PAGE_2)
-#         self.redirect('/serve/%s' % blob_info.key())
-#         
-# class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
-#     def get(self, resource):
-#         resource = str(urllib.unquote(resource))
-#         blob_info = blobstore.BlobInfo.get(resource)
-#         self.send_blob(blob_info)
 
 
 class Page1(BaseHandler):
@@ -59,14 +34,8 @@ class Page1(BaseHandler):
     def get(self):
         self.displayPage( Page1Form())
                          
-    def validateData(self):
-        errors = []
-        errorIds = []
-        
-        return errors, errorIds
-            
-            
     def post(self):
+        logging.info('Posting data: %s', self.request.POST)
         form = Page1Form(data = self.request.params) 
         if not form.is_valid():
             self.displayPage( form )

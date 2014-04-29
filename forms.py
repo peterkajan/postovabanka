@@ -92,7 +92,6 @@ class Page1Form(Form):
     def activities_part_2(self):
         acts = list(self.activities())
         return acts[len(acts)/2+3:]
-           
     
     def save(self, photo):
         rec = Record()
