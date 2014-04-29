@@ -505,18 +505,19 @@ h2 {
 
 .leftUnionLogo{
     position: absolute;
-    bottom: 25px;
-    left: 3%; 
+    bottom: 0px;
+    left: 6%; 
     border: 0;
     background-image: url('../images/unionPoistovna.jpg');
-    width: 180px;
-    height: 60px;
+    background-size: 130px auto;
+    width: 160px;
+    height: 90px;
     z-index: 100;
     background-color: white;
     background-repeat: no-repeat;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
+    border-radius: 25px 25px 0px 0px;
+    -webkit-border-radius: 25px 25px 0px 0px;
+    -moz-border-radius: 25px 25px 0px 0px;
     background-position: center;
 }
 
@@ -526,17 +527,18 @@ h2 {
 
 .rightUnionLogo{
     position: absolute;
-    bottom: 25px;
-    right: 3%; 
+    bottom: 0px;
+    right: 6%; 
     border: 0;
     background-image: url('../images/unionZdravotna.jpg');
-    width: 180px;
-    height: 60px;
+    background-size: 130px auto;
+    width: 160px;
+    height: 90px;
     z-index: 100;
     background-color: white;
     background-repeat: no-repeat;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
+    border-radius: 25px 25px 0px 0px;
+    -webkit-border-radius: 25px 25px 0px 0px;
+    -moz-border-radius: 25px 25px 0px 0px;
     background-position: center;
 }
