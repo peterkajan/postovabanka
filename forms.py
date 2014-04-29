@@ -7,6 +7,7 @@ from model import Record, ActivityType, ActivitySport
 from model import update_counter, Activity
 from defines import ACTIVITY_TYPES, ACTIVITY_SPORTS, ACTIVITIES
 import re
+from google.appengine.ext import ndb, db
 
 
 def belongs_to_group(name, group):
@@ -92,10 +93,11 @@ class Page1Form(Form):
         return acts[len(acts)/2+3:]
            
     
-    def save(self):
+    def save(self, photo):
         rec = Record()
         rec.my_activity = self.cleaned_data['my_activity']
         rec.joke = self.cleaned_data['joke']
+        rec.photo = db.Blob(photo);
         rec.put()
         
         for name, val in self.cleaned_data.items():

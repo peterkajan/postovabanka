@@ -8,6 +8,8 @@ import logging
 import os
 import webapp2
 from django.template.loader import render_to_string
+import urllib
+from google.appengine.ext import ndb
 
 
 settings.configure()
@@ -22,6 +24,30 @@ URL_PAGE_2='/potvrdenie'
 def render_template(response, template_file, template_values):
     response.out.write( render_to_string(template_file, template_values))
     
+# from google.appengine.ext.webapp import blobstore_handlers
+# from google.appengine.ext import blobstore, ndb
+
+
+# class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
+#     def post(self):
+#         logging.info(self.request.POST)
+#         
+#         upload_files = self.get_uploads('photo')  # 'file' is file upload field in the form
+#         logging.info(self.request.POST)
+#         blob_info = upload_files[0]
+#         #self.redirect('/serve/%s' % blob_info.key())
+# #         form = Page1Form(data = self.request.params) 
+# #         form.save()
+# #         self.redirect(URL_PAGE_2)
+#         self.redirect('/serve/%s' % blob_info.key())
+#         
+# class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
+#     def get(self, resource):
+#         resource = str(urllib.unquote(resource))
+#         blob_info = blobstore.BlobInfo.get(resource)
+#         self.send_blob(blob_info)
+
+
 class Page1(BaseHandler):
 
     def displayPage(self, form):
@@ -41,13 +67,12 @@ class Page1(BaseHandler):
             
             
     def post(self):
-#         errors, errorIds = self.validateData()
         form = Page1Form(data = self.request.params) 
         if not form.is_valid():
             self.displayPage( form )
             return
 
-        form.save()
+        form.save(self.request.get('photo'))
         self.redirect(URL_PAGE_2)
         
         
@@ -64,10 +89,20 @@ class Page2(BaseHandler):
     def get(self):
         self.displayPage()
     
+class PhotoPage(BaseHandler):
+    def get(self):
+        key = ndb.Key( urlsafe = self.request.get('key') )
+        rec = key.get()
+        if rec.photo:
+            self.response.headers['Content-Type'] = 'image/png'
+            self.response.out.write(rec.photo)
+        else:
+            self.error(404)
 
 application = webapp2.WSGIApplication([
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
+        ('/photo', PhotoPage),
     ], config = sessionConfig, debug=True)
 
 def main():
