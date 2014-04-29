@@ -10,7 +10,7 @@ html {
 	height: 100%;
 }
 
-#submit {
+.last-page-btn {
     background-color: rgba(0,0,0,0.4);
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -18,18 +18,38 @@ html {
     color: #fff;
     font-size: 20px;
     border:none;
-    width: 200px;
-    height: 70px;
+    width: 220px;
+    height: 50px;
     text-transform: uppercase;
     font-weight: bold;
     font-style: italic;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
-#submit:hover{
+.last-page-btn:hover{
     background-color: rgba(0,0,0,0.6);
+    
 }
 
+.name input[type=text] {
+	width: 220px;
+    height: 50px;
+    background-color: rgba(0,0,0,0.4);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius:20px;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 0;
+}
+
+.name input[type=text]:focus {
+	background-color: rgba(0,0,0,0.5);
+}
  
 body {
 	padding: 0;
@@ -45,7 +65,7 @@ body {
 	min-width: 1000px;
 }
 
-textarea {
+textarea, input[type=text] {
 	background-color: rgba(0, 0, 0, 0.2);
     color: #fff;
     padding: 10px;
@@ -53,10 +73,22 @@ textarea {
    	border: none;
 }
 
-textarea:focus {
+textarea:focus, input[type=text]:focus {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ddd;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #ddd;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #ddd;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #ddd;
+}
 
 .content {
 	height: 100% !important;

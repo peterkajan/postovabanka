@@ -6,6 +6,7 @@ class Record(ndb.Model):
     joke = ndb.TextProperty()
     time_filled = ndb.DateTimeProperty(auto_now=True)
     photo = ndb.BlobProperty()
+    name = ndb.StringProperty()
     
 def update_counter(counterCls, activity_id, label):
     ctr = counterCls.get_or_insert( str(activity_id))

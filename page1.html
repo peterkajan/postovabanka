@@ -4,7 +4,8 @@
 		<title>Úvod</title>
 		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
 		<link href='/stylesheets/onepage-scroll.css' rel='stylesheet' type='text/css'>
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+		<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script> -->
+		<script type="text/javascript" src="js/jquery-1.9.1.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/jquery.onepage-scroll.min.js"></script>
 		<script src="js/main.js" type="text/javascript"></script>
 		<script>
@@ -141,13 +142,17 @@
 
 						<div class="page_container">
 								<div class="photo">
-									{{ form.photo|safe }}
+									{{ form.photo }}
 								</div>
-						 
-								<button name="subject" type="button" value="HTML" id="submit">Nahraj fotku</button>
-								</br>
-								
-								<input type="submit" val="Pokračovať" id="submit"/>
+								<div class="name">
+									{{ form.name }}
+								</div>
+						 		<div>
+								<button name="subject" type="button" value="HTML" class="last-page-btn">Nahraj fotku</button>
+								</div>
+								<div>
+								<input type="submit" val="Pokračovať" id="submit" class="last-page-btn"/>
+								</div>
 							</div>
 						</div>
 					</section>

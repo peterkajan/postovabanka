@@ -2,7 +2,7 @@
 from django.core.exceptions import ValidationError
 from django.forms import Form, RadioSelect
 from django.forms.fields import CharField, ChoiceField, FileField, BooleanField
-from django.forms.widgets import Textarea, ClearableFileInput
+from django.forms.widgets import Textarea, ClearableFileInput, TextInput
 from model import Record, ActivityType, ActivitySport
 from model import update_counter, Activity
 from defines import ACTIVITY_TYPES, ACTIVITY_SPORTS, ACTIVITIES
@@ -50,6 +50,7 @@ class Page1Form(Form):
     my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50, 'placeholder': "Vpíšte sem Vašu aktivitu"}), required=False)
     joke = CharField(widget=Textarea, required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
+    name = CharField(widget=TextInput(attrs={'placeholder': 'Vaše meno...'}), required=False)
     
 #     def clean_id_num(self):
 #         if self.cleaned_data['id_num'] == 'error':
@@ -97,7 +98,10 @@ class Page1Form(Form):
         rec = Record()
         rec.my_activity = self.cleaned_data['my_activity']
         rec.joke = self.cleaned_data['joke']
-        rec.photo = db.Blob(photo);
+        if photo:
+            rec.photo = db.Blob(photo);
+            
+        rec.name = self.cleaned_data['name']
         rec.put()
         
         for name, val in self.cleaned_data.items():
