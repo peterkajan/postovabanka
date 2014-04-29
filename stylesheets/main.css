@@ -121,7 +121,7 @@ h1 {
 	margin-top: 10px;
 	color: #fff;
 	margin-bottom: 10px;
-	font-size: 44px;
+	font-size: 36px;
 	letter-spacing: -3px;
 	font-weight: bold;
 	float: left;
@@ -152,6 +152,7 @@ h2 {
 	text-align: left;
 	letter-spacing: -1px;
 	font-style: italic;
+	font-size: 18px;
 }
 
 .headingdiv {
@@ -190,12 +191,18 @@ h2 {
 }
 
 .page4 .headingdiv {
+	width: 70%;
+	background-color: rgba(0,0,0,0.4);
+}
+
+/*.page5 .headingdiv {
 	width: 60%;
 }
 
-.page5 .headingdiv {
-	width: 60%;
-}
+.page6 .headingdiv {
+	width: 80%;
+	background-color: rgba(0,0,0,0.4);
+}*/
 
 /*.pointer {
  color: #9b59b6;
@@ -239,7 +246,7 @@ h2 {
 }
 
 .activity {
-	margin-top: 200px;
+	margin-top: 160px;
 }
 
 .activity-text {
@@ -292,35 +299,12 @@ h2 {
 
 
 .joke {
-
-    margin-top: 100px;
     width: 400px;
-    /*color: #fff;
-    background-color: rgba(0,0,0,0);
-    padding: 10px;
-    border-radius: 25px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;*/
     text-align:left;
     position: absolute;
-    margin-top: 240px;
-
-	/*color: #fff;
-	background-color: rgba(0,0,0,0.2);
-	border-radius: 25px;
-	-webkit-border-radius: 25px;
-	-moz-border-radius: 25px;
-	width: 70%;
-	margin: 300px auto 0;
-	padding: 20px;
-	position:absolute;*/
+    margin-top: 210px;
 }
 
-	/*.joke textarea {
-		height: 150px;
-		overflow: auto;
-		width: 90%;
-	}*/	
 	.joke textarea {
 		margin-top: 10px;
 	    margin-bottom: 10px;
@@ -394,7 +378,7 @@ h2 {
 
 	.activity-button:hover {
 		
-		opacity: 0.9;
+		opacity: 0.8;
 	}	
 	
 	#activity-type-btn-0 .activity-button {
