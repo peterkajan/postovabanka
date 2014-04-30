@@ -30,6 +30,7 @@ $(function() {
                 document.getElementById("photo-div").innerHTML = document.getElementById("photo-div").innerHTML;
                 alert("Priložená fotka musí mať menej ako "+maxPhotoSize+" MB. Prosím nahrajte menšiu.");
             }
+            else $(".photo button").html("FOTKA NAHRATÁ");
     });
 
 });
