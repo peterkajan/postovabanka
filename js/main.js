@@ -23,11 +23,11 @@ $(function() {
     });
     $('input[type=file]').bind('change', function() {
 
-        if(this.files[0].size>=1048576)
+        if(this.files[0].size>=1048576*4)
             {
                 
                 document.getElementById("photo-div").innerHTML = document.getElementById("photo-div").innerHTML;
-                alert("Priložená fotka musí mať menej ako 1MB. Prosím nahrajte menšiu.");
+                alert("Priložená fotka musí mať menej ako 4MB. Prosím nahrajte menšiu.");
             }
     });
 
