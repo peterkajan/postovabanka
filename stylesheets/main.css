@@ -550,6 +550,7 @@ h2 {
 }
 
 #browser-warn {
+	display: none;
 	top: 0;
 	width: 100%;
 	background-color: #c33;
