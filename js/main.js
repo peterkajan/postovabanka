@@ -1,6 +1,6 @@
 /* custom javascript */
 var ACTIVITY_TYPES_CNT = 6;
-var maxPhotoSize =1; //in MB
+var maxPhotoSize =4; //in MB
 
 function toggleActivityType(buttonEl, number) {
     check = $('#id_activity_type_' + number);
