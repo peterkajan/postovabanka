@@ -121,7 +121,7 @@ textarea:focus, input[type=text]:focus {
 .confirmation-content {
 	height: 100%;
 	width: 100%;
-	background: url('../images/background5.jpg');
+	background: url('../images/background10.jpg');
 	background-size: cover;
 }
 
@@ -173,7 +173,7 @@ h2 {
 	text-align: left;
 	letter-spacing: -1px;
 	font-style: italic;
-	font-size: 18px;
+	font-size: 22px;
 }
 
 .headingdiv {
@@ -192,7 +192,7 @@ h2 {
 }
 
 .page1 .headingdiv {
-	width: 80%;
+	width: 60%;
 }
 
 .page2 .headingdiv {
@@ -215,6 +215,12 @@ h2 {
 	width: 70%;
 	background-color: rgba(0,0,0,0.4);
 }
+
+.confirmation-content .headingdiv{
+    width: 35%;
+}
+
+
 
 /*.page5 .headingdiv {
 	width: 60%;
@@ -290,11 +296,26 @@ h2 {
 	-webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
 	text-align: left;
-	position: absolute
+	position: absolute;
+	font-size: 22px;
 }
 
 .page2-2 .other-activity {
 	background-color: rgba(0,0,0,0.4);
+}
+
+
+.confirmation-content .other-activity{
+    left: 50%;    
+    margin-left: -400px;
+    text-align:center;
+}
+
+.page1 .other-activity{
+    text-align:left;
+    top:50%;
+    margin-top:100px;
+    max-width:500px;
 }
 
 .other-activity-column {
@@ -361,7 +382,7 @@ h2 {
  }*/
 
 .main section.page1 {
-	background-image: url('../images/background5.jpg');
+	background-image: url('../images/background10.jpg');
 }
 
 .main section.page2 {
@@ -377,7 +398,7 @@ h2 {
 	background-image: url('../images/background8.jpg');
 }
 .main section.page4 {
-	background-image: url('../images/background6.jpg');
+	background-image: url('../images/background9.jpg');
 }
 .main section.page5 {
 	background-image: url('../images/background7.jpg');

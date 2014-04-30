@@ -52,15 +52,15 @@ class Page1Form(Form):
     my_activity = CharField(widget=Textarea(attrs={
                     'rows': 3, 
                     'columns': 300, 
-                    'placeholder': "Vpíšte sem Vašu aktivitu",
+                    'placeholder': "Sem vpíš svoj vlastný nápad na aktivitu",
                     'maxlength': '200'}), required=False)
     joke = CharField(widget=Textarea(attrs={
                     'rows':"10",
-                    'placeholder':"Vpíšte sem Váš vtip",
+                    'placeholder':"Sem vpíš svoj obľúbený vtip",
                     'maxlength': '1000'}), required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
     name = CharField(widget=TextInput(attrs={
-                    'placeholder': 'Vaše meno...',
+                    'placeholder': 'ZADAJ MENO',
                     'class': 'last-page-field',
                     'maxlength': '50'}), required=False)
     

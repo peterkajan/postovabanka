@@ -15,27 +15,27 @@ ACTIVITY_TYPES=[
 ]
 
 ACTIVITY_SPORTS=[
-    'Klasických kolektívnych športových disciplín ako futbal, volejbal…',
-    'Adrenalínových športov',
-    'Netradičných a zábavných športových disciplín',
-    'Športov zameraných na správne držanie tela a dýchanie',
-    'Aeróbne cvičenia',
+    'Klasické kolektívne športy ako futbal, volejbal…',
+    'Adrenalínové športy',
+    'Netradičné a zábavné športy',
+    'Športy zamerané na správne držanie tela a dýchanie',
+    'Aeróbne cvičenia a kondičný tréning',
 ]
 
 ACTIVITIES=[
-    'Gravity jóga',
-    'Hoopnotica (cvičenie s obručou)',
-    'Jumping (cvičenie na trampolíne)',
+    'Antigravity jóga',
+    'Hoopnotica',
+    'Jumping',
     'Lezecká sieť',
-    'TRX (kondičný tréning)',
+    'TRX',
     'Šerm',
-    'Nafukovacie športové aktivity (Varifutbal, bungee running..)',
+    'Nafukovacie športové aktivity',
     'Jóga smiechu',
     'Tvárová gymnastika',
-    'Mozgostreľba (aktivita zameraná na aktivitu mozgu)',
+    'Mozgostreľba',
     'Veštiareň',
-    'Workshopy a novinky k téme zdravá strava',
-    'Workshopy a prednášky zamerané na duševné zdravie',
+    'Workshopy k téme zdravá strava',
+    'Workshopy o duševnom zdraví',
 ]
 
 MAIL_FROM = 'union@branda.sk'
