@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+DOMAIN = 'http://www.happyunion2014.sk'
+
+URL_PAGE_1='/'
+URL_PAGE_2='/potvrdenie'
+URL_PHOTO = '/photo'
+
 ACTIVITY_TYPES=[
     'Pri športe',
     'Keď relaxujem',

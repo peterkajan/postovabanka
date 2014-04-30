@@ -5,9 +5,11 @@ from django.forms.fields import CharField, ChoiceField, FileField, BooleanField
 from django.forms.widgets import Textarea, ClearableFileInput, TextInput
 from model import Record, ActivityType, ActivitySport
 from model import update_counter, Activity
-from defines import ACTIVITY_TYPES, ACTIVITY_SPORTS, ACTIVITIES
+from defines import ACTIVITY_TYPES, ACTIVITY_SPORTS, ACTIVITIES, DOMAIN,\
+    URL_PHOTO
 import re
 from google.appengine.ext import ndb, db
+import logging
 
 
 def belongs_to_group(name, group):
@@ -47,10 +49,20 @@ def update_group(name, val, group, model_cls):
 class Page1Form(Form):
     #error_css_class = 'error'
     #activity = ChoiceField(choices=ACTIVITY_CHOICES, widget=RadioSelect(), required=False)
-    my_activity = CharField(widget=Textarea(attrs={'rows': 3, 'columns': 50, 'placeholder': "Vpíšte sem Vašu aktivitu"}), required=False)
-    joke = CharField(widget=Textarea, required=False)
+    my_activity = CharField(widget=Textarea(attrs={
+                    'rows': 3, 
+                    'columns': 300, 
+                    'placeholder': "Vpíšte sem Vašu aktivitu",
+                    'maxlength': '200'}), required=False)
+    joke = CharField(widget=Textarea(attrs={
+                    'rows':"10",
+                    'placeholder':"Vpíšte sem Váš vtip",
+                    'maxlength': '1000'}), required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
-    name = CharField(widget=TextInput(attrs={'placeholder': 'Vaše meno...'}), required=False)
+    name = CharField(widget=TextInput(attrs={
+                    'placeholder': 'Vaše meno...',
+                    'class': 'last-page-field',
+                    'maxlength': '50'}), required=False)
     
 #     def clean_id_num(self):
 #         if self.cleaned_data['id_num'] == 'error':
@@ -87,12 +99,11 @@ class Page1Form(Form):
     
     def activities_part_1(self):
         acts = list(self.activities())
-        return acts[:len(acts)/2+2]
+        return acts[:len(acts)/2+3]
     
     def activities_part_2(self):
         acts = list(self.activities())
         return acts[len(acts)/2+3:]
-           
     
     def save(self, photo):
         rec = Record()
@@ -103,6 +114,9 @@ class Page1Form(Form):
             
         rec.name = self.cleaned_data['name']
         rec.put()
+        logging.info('Key: %s', rec.key.urlsafe())
+        rec.photo_link = DOMAIN + URL_PHOTO + '?key=' + rec.key.urlsafe()
+        rec.put() 
         
         for name, val in self.cleaned_data.items():
             if update_group(name, val, 'activity', Activity): 

@@ -10,39 +10,54 @@ html {
 	height: 100%;
 }
 
-.last-page-btn {
+#preloadedImages
+{
+    width: 0px;
+    height: 0px;
+    display: inline;
+    background-image: url('../images/i1c.png');
+    background-image: url('../images/i2c.png');
+    background-image: url('../images/i3c.png');
+    background-image: url('../images/i4c.png');
+    background-image: url('../images/i5c.png');
+    background-image: url('../images/i6c.png');
+}
+
+.last-page-field {
     background-color: rgba(0,0,0,0.4);
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius:20px;
     color: #fff;
-    font-size: 20px;
-    border:none;
-    width: 220px;
+	width: 260px;
     height: 50px;
-    text-transform: uppercase;
     font-weight: bold;
     font-style: italic;
     margin-bottom: 30px;
+}
+
+.last-page-field.max {
+	display: inline-block;
+	margin: 0 20px 30px;
+	padding: 10px;
+	height: auto;
+	width: auto;
+}
+
+.last-page-btn {
+    font-size: 20px;
+    border:none;
+    text-transform: uppercase;
 }
 
 .last-page-btn:hover{
-    background-color: rgba(0,0,0,0.6);
-    
+    background-color: rgba(0,0,0,0.6);    
 }
 
 .name input[type=text] {
-	width: 220px;
-    height: 50px;
     background-color: rgba(0,0,0,0.4);
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    border-radius:20px;
     font-size: 15px;
     text-transform: capitalize;
-    font-weight: bold;
-    font-style: italic;
-    margin-bottom: 30px;
     text-align: center;
     padding: 0;
 }
@@ -78,16 +93,16 @@ textarea:focus, input[type=text]:focus {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #ddd;
+    color:    #eee;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #ddd;
+    color:    #eee;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #ddd;
+    color:    #eee;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color:    #ddd;
+    color:    #eee;
 }
 
 .content {
@@ -286,6 +301,7 @@ h2 {
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
+	font-size: 12px;
 }
 
 .my-activity {
@@ -503,6 +519,11 @@ h2 {
     -moz-border-radius: 10px;
     background-position: center;
 }
+
+.photo {
+	margin-left: 130px;
+}
+
 .rightUnionLogo{
     position: absolute;
     bottom: 25px;
@@ -519,5 +540,3 @@ h2 {
     -moz-border-radius: 10px;
     background-position: center;
 }
-
-

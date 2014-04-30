@@ -21,12 +21,12 @@
 				});
 
 			});
-
 		</script>
 
 	</head>
 
 	<body>
+		<div id="preloadedImages"></div>
 		<div class="content">
 		    <div class="leftUnionLogo"></div>
 		    <div class="rightUnionLogo"></div>
@@ -130,7 +130,8 @@
 
 							<div class="joke">
 								<!-- <textarea name="joke" rows="30" cols="100" placeholder="vtip"></textarea>  -->
-								<textarea id="id_joke" name="joke" rows="10" placeholder="Vpíšte sem Váš vtip"></textarea>
+								<!-- <textarea id="id_joke" name="joke"></textarea> -->
+								{{ form.joke }}
 							</div>
 						</div>
 						<div class="next-page-btn-container"><div class="next-page-btn"></div></div>
@@ -151,11 +152,12 @@
 								<div class="name">
 									{{ form.name }}
 								</div>
-						 		<div>
-								<button id="upload-btn" name="subject" type="button" value="HTML" class="last-page-btn">Nahraj fotku</button>
+						 		<div class="photo">
+									<button id="upload-btn" name="subject" type="button" value="HTML" class="last-page-btn last-page-field">Nahraj fotku</button>
+									<div class="last-page-field max">Max 4MB</div>
 								</div>
 								<div>
-								<input type="submit" val="Pokračovať" id="submit" class="last-page-btn"/>
+								<input type="submit" val="Pokračovať" id="submit" class="last-page-btn last-page-field"/>
 								</div>
 							</div>
 						</div>
