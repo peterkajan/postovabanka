@@ -518,9 +518,12 @@ h2 {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     background-position: center;
+}
+
 .photo {
 	margin-left: 130px;
 }
+
 .rightUnionLogo{
     position: absolute;
     bottom: 25px;
@@ -537,5 +540,3 @@ h2 {
     -moz-border-radius: 10px;
     background-position: center;
 }
-
-
