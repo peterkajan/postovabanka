@@ -74,6 +74,7 @@ body {
 	height: 100%;
 	-webkit-font-smoothing: antialiased;
 	font-family: helvetica, arial, sans-serif;
+	font-style:italic;
 	background-position: top center;
 	background-color: black;
 	background-repeat: no-repeat;
@@ -86,6 +87,7 @@ textarea, input[type=text] {
     padding: 10px;
     text-align: left;
    	border: none;
+   	font-style: italic;
 }
 
 textarea:focus, input[type=text]:focus {
@@ -94,15 +96,19 @@ textarea:focus, input[type=text]:focus {
 
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #eee;
+    font-style: italic;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color:    #eee;
+    font-style: italic;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
     color:    #eee;
+    font-style: italic;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #eee;
+    font-style: italic;
 }
 
 .content {
