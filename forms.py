@@ -105,18 +105,17 @@ class Page1Form(Form):
         acts = list(self.activities())
         return acts[len(acts)/2+3:]
     
-    def save(self, photo):
-        rec = Record()
-        rec.my_activity = self.cleaned_data['my_activity']
-        rec.joke = self.cleaned_data['joke']
-        if photo:
-            rec.photo = db.Blob(photo);
-            
-        rec.name = self.cleaned_data['name']
-        rec.put()
-        logging.info('Key: %s', rec.key.urlsafe())
-        rec.photo_link = DOMAIN + URL_PHOTO + '?key=' + rec.key.urlsafe()
-        rec.put() 
+    def save(self, blob_key):
+        try:
+            rec = Record()
+            rec.my_activity = self.cleaned_data['my_activity']
+            rec.joke = self.cleaned_data['joke']
+            rec.name = self.cleaned_data['name']
+            rec.photo_blob_key = blob_key
+            rec.photo_link = DOMAIN + URL_PHOTO + '/' + str(blob_key)
+            rec.put()
+        except:
+            logging.exception('Saving record')  
         
         for name, val in self.cleaned_data.items():
             if update_group(name, val, 'activity', Activity): 
