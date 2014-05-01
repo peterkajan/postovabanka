@@ -619,14 +619,12 @@ h2 {
 
 .badbrowser{
     position: absolute;
-    top: 40%;
-    left: 30%;
+    top: 10px;
+    left: 10px;
     width: 600px;
-    background-color: black;
+    background-color: white;
     text-align: left;
-    margin-top: 50px;
-    color: #fff;
+    color: grey;
     font-style: italic;
-    font-size: 22px;
-    text-transform: uppercase;       
+    font-size: 22px;          
 }
