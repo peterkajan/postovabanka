@@ -536,6 +536,9 @@ h2 {
 	top: 50%;
 	left: 50%;
 	width: 300px;
+	height: 150px;
+	margin-top: -75px; /* Half the height */
+    margin-left: -150px; /* Half the width */
 }
 
 .leftUnionLogo{
