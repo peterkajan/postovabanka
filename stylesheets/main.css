@@ -551,6 +551,13 @@ h2 {
 	display: none;
 }
 
+.progress_text {
+    position: absolute;
+    top: 55%;
+    left: 45.5%;
+  
+   
+   }
 .progress img{
 	position: absolute;
 	top: 50%;
