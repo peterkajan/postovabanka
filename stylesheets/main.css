@@ -88,6 +88,8 @@ textarea, input[type=text] {
     text-align: left;
    	border: none;
    	font-style: italic;
+   	font-weight: normal;
+   	font-size:22px;
 }
 
 textarea:focus, input[type=text]:focus {
@@ -97,18 +99,22 @@ textarea:focus, input[type=text]:focus {
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #eee;
     font-style: italic;
+    font-size:22px;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color:    #eee;
     font-style: italic;
+    font-size:22px;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
     color:    #eee;
     font-style: italic;
+    font-size:22px;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #eee;
     font-style: italic;
+    font-size:22px;
 }
 
 .content {
@@ -414,8 +420,8 @@ h2 {
 	display: inline-block;
 	opacity: 1;
 	background-repeat: no-repeat;
-	background-color: rgba(255,255,255,0.7);
-	color: #000;
+	background-color: rgba(0,0,0,0.4);
+	color: #fff;
 	border-radius: 25px;
 	-webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
