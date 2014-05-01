@@ -616,7 +616,17 @@ h2 {
 	padding: 5px;
 	color: #fff;
 }
+
 .badbrowser{
-    background-color: white;
-    text-align:left;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 600px;
+    background-color: black;
+    text-align: left;
+    margin-top: 50px;
+    color: #fff;
+    font-style: italic;
+    font-size: 22px;
+    text-transform: uppercase;       
 }
