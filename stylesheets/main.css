@@ -99,17 +99,17 @@ textarea:focus, input[type=text]:focus {
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    #eee;
     font-style: italic;
-    font-size:22px;
+    font-size:20px;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color:    #eee;
     font-style: italic;
-    font-size:22px;
+    font-size:20px;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
     color:    #eee;
     font-style: italic;
-    font-size:22px;
+    font-size:20px;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #eee;
