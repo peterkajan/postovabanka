@@ -60,7 +60,8 @@ class Page1Form(Form):
                     'maxlength': '1000'}), required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
     name = CharField(widget=TextInput(attrs={
-                    'placeholder': 'ZADAJ MENO',
+                    'value': 'Zadaj Meno',                         
+                    'placeholder': 'Zadaj Meno',
                     'class': 'last-page-field',
                     'maxlength': '50'}), required=False)
     

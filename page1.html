@@ -30,7 +30,7 @@
 
             function chBrowserWarn(version) {
                 var ie = detectIE();
-                var badBrowserHtml = '<div class="badbrowser"> Hopla... Veľmi nás to mrzí, ale používate internetový prehliadač, na ktorom by táto stránka vyzerala škaredo :). Prosíme Vás použite radšej Mozillu Firefox, Google Chrome, prípadne novšiu verziu Internet Explorer a bude sa Vám vo všeobecnosti lepšie surfovať po internete :)</div>'
+                var badBrowserHtml = '<div class="badbrowser">Hopla... Veľmi nás to mrzí, ale používate internetový prehliadač, na ktorom by táto stránka vyzerala škaredo :). Prosíme Vás, použite radšej Mozillu Firefox, Google Chrome, prípadne novšiu verziu Internet Explorer a bude sa Vám vo všeobecnosti lepšie surfovať po internete :)</div>'
                 if (ie && ie < version)
                     return true;
                 return false;
