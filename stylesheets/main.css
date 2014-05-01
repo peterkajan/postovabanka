@@ -180,7 +180,7 @@ h2 {
 	/*border-style:solid;
 	 border-color:white;
 	 border-width:10px;*/
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color: rgba(0, 0, 0, 0.4);
 	margin-top: 50px;
 	display: inline-block;
 	padding: 20px 40px 20px 130px;
@@ -290,7 +290,7 @@ h2 {
 .other-activity {
 	margin-top: 200px;
 	color: #fff;
-	background-color: rgba(0,0,0,0.2);
+	background-color: rgba(0,0,0,0.4);
 	padding: 20px;
 	border-radius: 25px;
 	-webkit-border-radius: 25px;
@@ -315,7 +315,7 @@ h2 {
     text-align:left;
     top:50%;
     margin-top:100px;
-    max-width:500px;
+    max-width:500px;    
 }
 
 .other-activity-column {
@@ -527,7 +527,7 @@ h2 {
 
 .progress img{
 	position: absolute;
-	top: 35%;
+	top: 50%;
 	left: 50%;
 	width: 300px;
 }
