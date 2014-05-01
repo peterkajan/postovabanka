@@ -86,14 +86,16 @@ class Page2(BaseHandler):
   
     def get(self):
         self.displayPage()
-
+        
 
 application = webapp2.WSGIApplication([
         (URL_PAGE_1, Page1),
         (URL_PAGE_2, Page2),
         (URL_PHOTO + '/([^/]+)?', ServeHandler),
-        ('/upload', UploadHandler)
+        ('/upload', UploadHandler),
+        ('/.*', Page1),
     ], config = sessionConfig, debug=True)
+
 
 def main():
     # Set the logging level in the main function
