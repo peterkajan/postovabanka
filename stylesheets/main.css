@@ -24,7 +24,7 @@ html {
 }
 
 .last-page-field {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.65);
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius:20px;
@@ -55,7 +55,7 @@ html {
 }
 
 .name input[type=text] {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.65);
     font-size: 17px;
     text-transform: capitalize;
     text-align: center;
@@ -149,7 +149,7 @@ h1 {
 	color: #fff;
 	margin-bottom: 10px;
 	font-size: 36px;
-	letter-spacing: -3px;
+	letter-spacing: -2px;
 	font-weight: bold;
 	float: left;
 	font-style: italic;
@@ -177,7 +177,7 @@ h2 {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	text-align: left;
-	letter-spacing: -1px;
+	letter-spacing: 0px;
 	font-style: italic;
 	font-size: 22px;
 }
@@ -416,6 +416,7 @@ h2 {
 	padding-top: 110px;
 	background-size: 95px;
 	background-position-x: center;
+	background-position: 8px 8px;
 	background-position-y: +10px;	
 	display: inline-block;
 	opacity: 1;
@@ -508,6 +509,25 @@ h2 {
 	z-index: 100;
 }
 
+.next-page-text-container {
+    width: auto;
+    height: 23px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border: solid transparent;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    padding: 11px 17px 11px 60px;
+    background-color: rgba(0,0,0,0.2);
+    margin-left: -50px;
+    z-index: 99;
+    color: #fff;
+}
+
+
+
 .next-page-btn {
 	margin-top: 8px;
 	border-left: 15px solid transparent;
@@ -556,7 +576,7 @@ h2 {
     border-radius: 25px 25px 0px 0px;
     -webkit-border-radius: 25px 25px 0px 0px;
     -moz-border-radius: 25px 25px 0px 0px;
-    background-position: center;
+    background-position: center;        
 }
 
 .photo {
