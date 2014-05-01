@@ -28,16 +28,16 @@
                 return false;
             }
 
-            function chBrowserWarn() {
+            function chBrowserWarn(version) {
                 var ie = detectIE();
-                if (ie && ie < 9)
+                if (ie && ie < version)
                     return true;
                 return false;
             }
 
 
             $(document).ready(function() {
-                if (detectIE()) {
+                if (chBrowserWarn(9)) {
                     $("body").html("Bad browser");
                     $("body").addClass("badbrowser");
                     
