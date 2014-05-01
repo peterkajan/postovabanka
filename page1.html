@@ -30,7 +30,6 @@
 
             function chBrowserWarn(version) {
                 var ie = detectIE();
-                var badBrowserHtml = '<div class="badbrowser"> Hopla... Veľmi nás to mrzí, ale používate internetový prehliadač, na ktorom by táto stránka vyzerala škaredo :). Prosíme Vás použite radšej Mozillu Firefox, Google Chrome, prípadne novšiu verziu Internet Explorer a bude sa Vám vo všeobecnosti lepšie surfovať po internete :)</div>'
                 if (ie && ie < version)
                     return true;
                 return false;
@@ -38,11 +37,11 @@
 
 
             $(document).ready(function() {
-                if (chBrowserWarn(9)) {
+                var badBrowserHtml = '<div class="badbrowser"> Hopla... Veľmi nás to mrzí, ale používate internetový prehliadač, na ktorom by táto stránka vyzerala škaredo :). Prosíme Vás použite radšej Mozillu Firefox, Google Chrome, prípadne novšiu verziu Internet Explorer a bude sa Vám vo všeobecnosti lepšie surfovať po internete :)</div>';
+                if (chBrowserWarn(12)) {
                     $("body").html(badBrowserHtml);
                     $("body").addClass("badbrowser");
-                    
-                        
+
                 } else {
 
                     $(".main").onepage_scroll({
@@ -96,14 +95,13 @@
 
                         </div>
 
-                        <div class="next-page-btn-container">                          
+                        <div class="next-page-btn-container">
                             <div class="next-page-btn"></div>
                         </div>
 
-                       <div class="next-page-text-container">                          
+                        <div class="next-page-text-container">
                             Pokračujte ďalej
                         </div>
-
 
                     </section>
 
@@ -173,7 +171,9 @@
                                     </div>
                                     {% endfor %}
                                     <div class="my-activity">
-                                        <label for="{{ form.my_activity..auto_id }}"> <br> Iné</label>
+                                        <label for="{{ form.my_activity..auto_id }}">
+                                            <br>
+                                            Iné</label>
                                         {{ form.my_activity }}
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@
                     <div class="progress">
                         <img src="images/progress.gif"/>
                         <div class="progress_text">
-                        <h2>NAHRÁVAM...</h2>
+                            <h2>NAHRÁVAM...</h2>
                         </div>
                     </div>
                     <section class="page4">
