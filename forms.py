@@ -59,9 +59,8 @@ class Page1Form(Form):
                     'placeholder':"Sem vpíš svoj obľúbený vtip",
                     'maxlength': '1000'}), required=False)
     photo = FileField(widget=ClearableFileInput, required=False)
-    name = CharField(widget=TextInput(attrs={
-                    'value': 'Zadaj Meno',                         
-                    'placeholder': 'Zadaj Meno',
+    name = CharField(widget=TextInput(attrs={                     
+                    'placeholder': 'Meno a priezvisko',
                     'class': 'last-page-field',
                     'maxlength': '50'}), required=False)
     
