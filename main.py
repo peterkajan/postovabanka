@@ -1,4 +1,4 @@
-﻿from defines import *
+from defines import *
 from django.conf import settings
 from forms import Page1Form
 from google.appengine.api import mail
@@ -10,7 +10,7 @@ from django.template.loader import render_to_string
 from google.appengine.ext import ndb
 
 from google.appengine.ext.webapp import blobstore_handlers
-from google.appengine.ext import blobstore, ndb
+from google.appengine.ext import blobstore, ndb, db
 import urllib
 
 
@@ -28,16 +28,21 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     def post(self):
         try:
             logging.info('Posting data: %s', self.request.POST)
+            photo_blob = None
             if self.request.POST['ie_upl'] != 'false':
-                logging.warn('Unsupported IE upload')
-            photo_key = self.save_file()
+                photo_blob = self.request.get('files[]')
+                logging.info("Photo blob: %s", photo_blob)
+                
+            photo_key = None
+            if photo_blob is None:
+                photo_key = self.save_file()
             
             form = Page1Form(data = self.request.params) 
             if not form.is_valid():
                 self.displayPage( form=form )
                 return
     
-            form.save(photo_key)
+            form.save(photo_key, photo_blob)
         except:
             logging.exception('Error when posting data')
         
@@ -63,10 +68,18 @@ class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
     def get(self, resource):
         resource = str(urllib.unquote(resource))
         blob_info = blobstore.BlobInfo.get(resource)
-        if not blob_info:
-            self.error(404)
-            
-        self.send_blob(blob_info)
+        if blob_info:
+            self.send_blob(blob_info)
+            return
+        
+        logging.info('Rsource: %s', resource)
+        key = ndb.Key( urlsafe = resource )
+        rec = key.get()
+        if rec and rec.photo is not None:
+            self.response.out.write(rec.photo)
+            return
+        
+        self.error(404)
 
 
 class Page1(BaseHandler):

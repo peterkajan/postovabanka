@@ -105,15 +105,26 @@ class Page1Form(Form):
         acts = list(self.activities())
         return acts[len(acts)/2+3:]
     
-    def save(self, blob_key):
+    def save(self, blob_key=None, photo=None):
         try:
             rec = Record()
             rec.my_activity = self.cleaned_data['my_activity']
             rec.joke = self.cleaned_data['joke']
             rec.name = self.cleaned_data['name']
-            rec.photo_blob_key = blob_key
-            rec.photo_link = DOMAIN + URL_PHOTO + '/' + str(blob_key)
+            if blob_key:
+                logging.info('Saving blob_key')
+                rec.photo_blob_key = blob_key
+                rec.photo_link = DOMAIN + URL_PHOTO + '/' + str(blob_key)
+                
+            if photo is not None:
+                logging.info('Saving blob')
+                rec.photo = db.Blob(photo);
+
             rec.put()
+            
+            if photo is not None:
+                rec.photo_link = DOMAIN + URL_PHOTO + '/' + str(rec.key.urlsafe())
+                rec.put()
         except:
             logging.exception('Saving record')  
         
