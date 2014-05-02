@@ -28,6 +28,8 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     def post(self):
         try:
             logging.info('Posting data: %s', self.request.POST)
+            if self.request.POST['ie_upl'] != 'false':
+                logging.warn('Unsupported IE upload')
             photo_key = self.save_file()
             
             form = Page1Form(data = self.request.params) 
@@ -44,7 +46,10 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     def save_file(self):
         try:
             upload_files = self.get_uploads('photo')
-            logging.info(self.request.POST)
+            if len(upload_files) == 0:
+                logging.info("No photo uploaded")
+                return
+            
             blob_info = upload_files[0]
             key = blob_info.key()
             logging.info("Blob info: %s", key)
