@@ -1,2 +1,2 @@
 set PYTHONPATH=.
-appcfg.py download_data --config_file=exporter.py --filename=data_export.csv --kind=EmployeeEntity --url=http://filmovyformular.appspot.com/_ah/remote_api --application=s~filmovyformular D:\!Projects\MovieFormWorkspace\MovieForm
+appcfg.py download_data --config_file=exporter.py --filename=data_export.csv --kind=Record --url=http://unionhappy2.appspot.com/_ah/remote_api --application=s~unionhappy2 /Users/pkajan/Documents/Aptana Studio 3 Workspace/UnionHappy

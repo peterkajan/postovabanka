@@ -2,37 +2,28 @@ from google.appengine.ext import db
 from google.appengine.tools import bulkloader
 from google.appengine.ext import ndb
 
-class GuestEntity(db.Model):
-    """entitity to be exported"""
-    firstname = db.StringProperty()
-    lastname = db.StringProperty()
-    email = db.StringProperty()
-    employer = db.StringProperty()
-    workplace = db.StringProperty()
-    accomodation = db.StringProperty()
-    residence = db.StringProperty()
-    roommate = db.StringProperty()
-    character = db.StringProperty()
+class Record(db.Model):
+    my_activity = db.StringProperty()
+    joke = db.TextProperty()
+    time_filled = db.DateTimeProperty()
+    name = db.StringProperty()
+    photo_link = db.StringProperty()
+    
 
-
-def toUtf8( str ):
-    if (str):
-        return str.encode('utf-8')
+def toUtf8( elem ):
+    if (elem):
+        return str(elem).encode('utf-8')
     else:
         return None
     
 class AlbumExporter(bulkloader.Exporter):
     def __init__(self):
-        bulkloader.Exporter.__init__(self, 'EmployeeEntity',
-                                    [('firstname', toUtf8, ''),
-                                     ('lastname', toUtf8, ''),
-                                     ('email', toUtf8, ''),
-                                     ('employer', toUtf8, ''),
-                                     ('workplace', toUtf8, ''),
-                                     ('accomodation', toUtf8, ''),
-                                     ('residence', toUtf8, ''),
-                                     ('roommate', toUtf8, ''),
-                                     ('character', toUtf8, ''),
+        bulkloader.Exporter.__init__(self, 'Record',
+                                    [('my_activity', toUtf8, ''),
+                                     ('joke', toUtf8, ''),
+                                     ('time_filled', toUtf8, ''),
+                                     ('name', toUtf8, ''),
+                                     ('photo_link', toUtf8, ''),
                                     ])
 
 
