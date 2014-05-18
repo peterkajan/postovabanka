@@ -24,6 +24,8 @@ URL_PAGE_REJECT='/neucast'
 URL_PAGE_SENDER='/send_mails_secret'
 URL_PAGE_TEST_DATA_IMPORT='/import_secret'
 
+URL_PAGE_MAIL='/mail'
+
 if defines.PAGE_FLOW_2:
     URL_PAGE_2 = URL_PAGE_3
 
@@ -31,6 +33,10 @@ if defines.PAGE_FLOW_2:
 def render_template(response, template_file, template_values):
     path = os.path.join(os.path.dirname(__file__), template_file)
     response.out.write(template.render(path, template_values))
+    
+def renderString(template_file, template_values):
+    path = os.path.join(os.path.dirname(__file__), template_file)
+    return template.render(path, template_values)
     
 
 def _getKey(handler):
@@ -156,6 +162,28 @@ class PageReject(BaseHandler):
   
     def get(self):
         self.displayPage()
+        
+class MailHandler(BaseHandler):
+
+    def displayPage(self, params={}, errors=[], errorIds=[]):
+        template_values = {
+            'p': params,
+            'errors': errors,
+            'errorIds': errorIds,
+        }
+        render_template(self.response, 'mail.html', template_values)
+  
+    def get(self):
+        
+        key = _getKey(self)
+        if  key :
+            guest = _getGuest(self, key)
+            if  guest:
+                self.response.out.write(guest.email)
+                sendTestMail(guest)
+                self.displayPage()
+                
+        self.response.out.write("Could not get key");
                          
 
 class SenderPage(BaseHandler):
@@ -182,6 +210,22 @@ def _sendMail(senderAddress, userAddress, subject, body):
         mail.send_mail(senderAddress, userAddress, subject, body)
     except (Exception, DeadlineExceededError):
         logging.exception('Failed to send email %s ', userAddress) 
+        
+def _sendMailHTML(senderAddress, userAddress, messageSubject, htmlBody, plainBody):
+    try:
+        message = mail.EmailMessage(sender=senderAddress, subject=messageSubject)
+    
+        message.to = userAddress
+
+        message.html = htmlBody
+        
+        message.body = plainBody
+
+        message.send()
+
+    except (Exception, DeadlineExceededError):
+        logging.exception('Failed to send email %s ', userAddress) 
+            
             
 def sendInvitationMail(guest, link):
     logging.info('Sending invitation mail sent to %s', guest.email)
@@ -189,7 +233,19 @@ def sendInvitationMail(guest, link):
     senderAddress = defines.MAIL_FROM
     subject = defines.MAIL_INVITATION_SUBJECT
     body = defines.MAIL_INVITATION_TEXT.format(name=guest.firstname, link=link)
-    _sendMail(senderAddress, userAddress, subject, body)
+    htmlText = defines.MAIL_INVITATION_HTML.format(name=guest.firstname, link=link)
+    
+    #_sendMail(senderAddress, userAddress, subject, body)
+    
+    template_values = {
+          'header':subject,
+          'text':htmlText,
+    }
+    
+    html = renderString('mail.html',template_values)
+     
+    _sendMailHTML(senderAddress, userAddress, subject, html, body)
+    
     logging.info('Invitation mail sent successfully')
     
 def sendConfirmationMail(guest):
@@ -198,7 +254,18 @@ def sendConfirmationMail(guest):
     senderAddress = defines.MAIL_FROM
     subject = defines.MAIL_CONFIRMATION_SUBJECT
     body = defines.MAIL_CONFIRMATION_TEXT.format(name=guest.firstname,)
-    _sendMail(senderAddress, userAddress, subject, body)
+    htmlText = defines.MAIL_CONFIRMATION_HTML.format(name=guest.firstname,)
+    #_sendMail(senderAddress, userAddress, subject, body)
+    
+    template_values = {
+          'header':subject,
+          'text':htmlText,
+    }
+    
+    html = renderString('mail.html',template_values)
+     
+    _sendMailHTML(senderAddress, userAddress, subject, html, body)
+    
     logging.info('Confirmation mail sent successfully')
     
 def sendRejectionMail(guest, link):
@@ -207,8 +274,36 @@ def sendRejectionMail(guest, link):
     senderAddress = defines.MAIL_FROM
     subject = defines.MAIL_REJECTION_SUBJECT
     body = defines.MAIL_REJECTION_TEXT.format(name=guest.firstname, link=link)
-    _sendMail(senderAddress, userAddress, subject, body)
+    htmlText = defines.MAIL_REJECTION_HTML.format(name=guest.firstname, link=link)
+    #_sendMail(senderAddress, userAddress, subject, body)
+    
+    template_values = {
+          'header':subject,
+          'text':htmlText,
+    }
+    
+    html = renderString('mail.html',template_values)
+     
+    _sendMailHTML(senderAddress, userAddress, subject, html, body)
+    
     logging.info('Rejection mail sent successfully')
+
+#testovacia metoda
+def sendTestMail(guest):
+    logging.info('Sending test mail to %s', guest.email)
+    userAddress = guest.email
+    senderAddress = defines.MAIL_FROM
+    
+    template_values = {
+          'header':guest.firstname,
+          'text':guest.email,
+    }
+    
+    html = renderString('mail.html',template_values)
+     
+    _sendMailHTML(senderAddress, userAddress, 'subject', html, 'alternative plain text')
+    
+    logging.info('Test mail sent successfully')
     
 class TestDataImportPage(BaseHandler):
     def get(self):
@@ -232,7 +327,9 @@ else:
 pages = flow_pages + [
     (URL_PAGE_REJECT, PageReject),
     (URL_PAGE_SENDER, SenderPage),
-    (URL_PAGE_TEST_DATA_IMPORT, TestDataImportPage)]
+    (URL_PAGE_TEST_DATA_IMPORT, TestDataImportPage),
+    (URL_PAGE_MAIL, MailHandler),
+    ]
     
 application = webapp2.WSGIApplication(pages, config = sessionConfig)
 
