@@ -8,14 +8,11 @@ import logging
 import webapp2
 from django.template.loader import render_to_string
 from google.appengine.ext import ndb
-
+ 
 from google.appengine.ext.webapp import blobstore_handlers
 from google.appengine.ext import blobstore, ndb, db
 import urllib
 
-
-
-settings.configure()
 settings.USE_I18N = False
 settings.TEMPLATE_DIRS = ('.')
 settings.TEMPLATE_DEBUG = True
